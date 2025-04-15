@@ -4,85 +4,145 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>MANOVOLT - Servicios Eléctricos</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <style>
     body {
       margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #0c1e2c;
+      background: linear-gradient(135deg, #0c1e2c, #1a3a4d);
       color: #ffffff;
     }
+
     header {
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 20px 40px;
-      background-color: #0c1e2c;
+      background-color: rgba(0, 0, 0, 0.7);
+      position: sticky;
+      top: 0;
+      z-index: 100;
     }
+
     .logo {
       display: flex;
       align-items: center;
-      font-size: 1.5rem;
+      font-size: 1.7rem;
       font-weight: bold;
       color: #fcd000;
     }
+
     .logo span {
       margin-left: 10px;
       color: white;
     }
+
     nav a {
       margin-left: 20px;
       color: white;
       text-decoration: none;
+      font-weight: bold;
     }
+
     .hero {
-      padding: 60px 40px;
+      padding: 80px 40px;
       display: flex;
       flex-direction: column;
       align-items: flex-start;
-      max-width: 700px;
+      max-width: 800px;
+      animation: fadeIn 1.5s ease-in-out;
     }
+
     .hero h1 {
-      font-size: 2.5rem;
+      font-size: 2.8rem;
       margin-bottom: 20px;
     }
+
     .hero p {
-      font-size: 1.2rem;
+      font-size: 1.3rem;
       line-height: 1.6;
     }
+
     .servicios {
       background-color: #f8f8f8;
       color: #000;
-      padding: 40px;
+      padding: 60px 40px;
     }
+
     .servicios h2 {
       color: #fcd000;
+      margin-bottom: 20px;
     }
-    ul {
-      line-height: 1.8;
+
+    .servicios ul {
+      line-height: 2;
+      padding-left: 20px;
     }
+
+    .servicios li {
+      margin-bottom: 10px;
+    }
+
+    .servicios i {
+      margin-right: 10px;
+      color: #fcd000;
+    }
+
     .zona {
       margin-top: 20px;
       font-weight: bold;
     }
-    .whatsapp {
-      margin-top: 30px;
+
+    footer {
+      background-color: #0c1e2c;
+      text-align: center;
+      padding: 20px;
+      color: #ccc;
     }
-    .whatsapp a {
-      display: inline-block;
+
+    .boton-wsp {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
       background-color: #25D366;
       color: white;
-      padding: 12px 20px;
-      border-radius: 5px;
+      font-size: 24px;
+      padding: 15px;
+      border-radius: 50%;
       text-decoration: none;
-      font-weight: bold;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+      z-index: 1000;
     }
+
     @media (max-width: 600px) {
       header, .hero, .servicios {
         padding: 20px;
       }
+
       .hero h1 {
         font-size: 2rem;
       }
+
+      .hero p {
+        font-size: 1rem;
+      }
+    }
+
+    /* Animaciones */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 1s ease-out, transform 1s ease-out;
+    }
+
+    .fade-in.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
@@ -96,26 +156,46 @@
     </nav>
   </header>
 
-  <section class="hero" id="inicio">
-    <h1>Conectamos tu hogar con seguridad y confianza</h1>
-    <p>Soy técnico electricista con más de <strong>9 años de experiencia</strong> y actualmente cursando Ingeniería Eléctrica. Mi misión es ofrecerte soluciones eléctricas seguras, confiables y duraderas, desde instalaciones básicas hasta proyectos completos.</p>
-  </section>
+  <main>
+    <section class="hero fade-in" id="inicio">
+      <h1>Conectamos tu hogar con seguridad y confianza</h1>
+      <p>Soy técnico electricista con más de <strong>9 años de experiencia</strong> y actualmente cursando Ingeniería Eléctrica. Mi misión es ofrecerte soluciones eléctricas seguras, confiables y duraderas, desde instalaciones básicas hasta proyectos completos.</p>
+    </section>
 
-  <section class="servicios" id="servicios">
-    <h2>Servicios</h2>
-    <ul>
-      <li>Instalación de lámparas, focos, tomacorrientes y apagadores</li>
-      <li>Mantenimiento y corrección de fallas eléctricas</li>
-      <li>Instalación de tableros y protecciones</li>
-      <li>Cableado residencial y comercial</li>
-      <li>Revisión de cortocircuitos y sobrecargas</li>
-      <li>Asesoría para nuevos proyectos</li>
-    </ul>
-    <div class="zona">Zonas de trabajo: El Salvador</div>
+    <section class="servicios fade-in" id="servicios">
+      <h2>Servicios</h2>
+      <ul>
+        <li><i class="fas fa-lightbulb"></i> Instalación de lámparas, focos, tomacorrientes y apagadores</li>
+        <li><i class="fas fa-tools"></i> Mantenimiento y corrección de fallas eléctricas</li>
+        <li><i class="fas fa-bolt"></i> Instalación de tableros y protecciones</li>
+        <li><i class="fas fa-house"></i> Cableado residencial y comercial</li>
+        <li><i class="fas fa-exclamation-triangle"></i> Revisión de cortocircuitos y sobrecargas</li>
+        <li><i class="fas fa-comments"></i> Asesoría para nuevos proyectos</li>
+      </ul>
+      <div class="zona">Zonas de trabajo: El Salvador</div>
+    </section>
+  </main>
 
-    <div class="whatsapp" id="contacto">
-      <a href="https://wa.me/50374656746" target="_blank">Contactar por WhatsApp</a>
-    </div>
-  </section>
+  <footer>
+    © 2025 MANOVOLT - Todos los derechos reservados
+  </footer>
+
+  <!-- Botón flotante WhatsApp -->
+  <a href="https://wa.me/50374656746" target="_blank" class="boton-wsp" aria-label="Contactar por WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <!-- Script animación al hacer scroll -->
+  <script>
+    const elements = document.querySelectorAll('.fade-in');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    });
+    elements.forEach(el => observer.observe(el));
+  </script>
 </body>
 </html>
