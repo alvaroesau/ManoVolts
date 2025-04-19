@@ -96,17 +96,21 @@
   <h2>Formulario de Contacto</h2>
 
   <form id="contact-form">
-    <label for="nombre">Nombre completo:</label>
-    <input type="text" id="nombre" name="nombre" required>
+  <label for="nombre">Nombre completo:</label>
+  <input type="text" id="nombre" name="nombre" required>
 
-    <label for="correo">Correo electrónico:</label>
-    <input type="email" id="correo" name="correo" required>
+  <label for="telefono">Número de teléfono:</label>
+  <input type="tel" id="telefono" name="telefono" required pattern="[0-9]{8}" placeholder="Ej: 74656746">
 
-    <label for="mensaje">Mensaje:</label>
-    <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+  <label for="correo">Correo electrónico:</label>
+  <input type="email" id="correo" name="correo" required>
 
-    <button type="submit">Enviar mensaje</button>
-  </form>
+  <label for="mensaje">Mensaje:</label>
+  <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+
+  <button type="submit">Enviar mensaje</button>
+</form>
+
 
   <!-- Modal de confirmación -->
   <div class="modal" id="modal">
