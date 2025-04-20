@@ -1,129 +1,100 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Consejos Eléctricos - MANOVOLT</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog Eléctrico - MANOVOLT</title>
   <style>
     body {
       margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(135deg, #0c1e2c, #1a3a4d);
-      color: #ffffff;
+      background: #f4f4f4;
+      color: #333;
     }
 
     header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 40px;
-      background-color: rgba(0, 0, 0, 0.7);
-    }
-
-    .logo {
-      display: flex;
-      align-items: center;
-      font-size: 1.7rem;
-      font-weight: bold;
-      color: #fcd000;
-    }
-
-    .logo span {
-      margin-left: 10px;
+      background: #0c1e2c;
+      padding: 20px;
       color: white;
-    }
-
-    nav a {
-      margin-left: 20px;
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    .blog-section {
-      padding: 60px 40px;
       text-align: center;
     }
 
-    .blog-section h2 {
-      font-size: 2.2rem;
+    header h1 {
+      margin: 0;
       color: #fcd000;
-      margin-bottom: 40px;
     }
 
     .blog-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 30px;
+      max-width: 900px;
+      margin: 40px auto;
       padding: 0 20px;
     }
 
-    .blog-card {
-      background-color: #1c2e40;
-      padding: 20px;
-      border-radius: 15px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.4);
-      transition: transform 0.3s ease;
+    .entrada {
+      background: white;
+      margin-bottom: 30px;
+      padding: 25px;
+      border-left: 6px solid #fcd000;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      border-radius: 10px;
+      transition: transform 0.2s ease;
     }
 
-    .blog-card:hover {
-      transform: translateY(-10px);
+    .entrada:hover {
+      transform: translateY(-5px);
     }
 
-    .blog-card i {
-      font-size: 2.5rem;
-      margin-bottom: 15px;
-      color: #fcd000;
+    .entrada h2 {
+      margin-top: 0;
+      color: #0c1e2c;
     }
 
-    .blog-card h3 {
-      color: #fcd000;
-      margin-bottom: 10px;
-    }
-
-    .blog-card p {
-      font-size: 1rem;
-      color: #ccc;
+    .entrada p {
+      line-height: 1.6;
     }
 
     footer {
-      background-color: #0c1e2c;
+      background: #0c1e2c;
+      color: #ccc;
       text-align: center;
       padding: 20px;
-      color: #ccc;
+      margin-top: 40px;
     }
   </style>
 </head>
 <body>
   <header>
-    <div class="logo">⚡<span>MANOVOLT</span></div>
-    <nav>
-      <a href="index.html">Inicio</a>
-      <a href="galeria.html">Galería</a>
-      <a href="#">Blog</a>
-    </nav>
+    <h1>Consejos y Blog Eléctrico</h1>
+    <p>Tips útiles, recomendaciones y más para mantener tu instalación segura</p>
   </header>
 
-  <main class="blog-section">
-    <h2>Consejos Eléctricos</h2>
-    <div class="blog-container">
-      <div class="blog-card">
-        <i class="fas fa-lightbulb"></i>
-        <h3>¿Cómo elegir focos LED?</h3>
-        <p>Aprendé a seleccionar los mejores focos LED para ahorrar energía y mejorar la iluminación de tu hogar o negocio.</p>
-      </div>
-      <div class="blog-card">
-        <i class="fas fa-bolt"></i>
-        <h3>¿Qué hacer ante una sobrecarga?</h3>
-        <p>Te explicamos los pasos para actuar con seguridad si se sobrecarga un circuito eléctrico en casa o en el trabajo.</p>
-      </div>
-      <div class="blog-card">
-        <i class="fas fa-plug"></i>
-        <h3>Tips para ahorrar energía</h3>
-        <p>Descubrí consejos prácticos para reducir tu consumo eléctrico y pagar menos en tu factura de luz cada mes.</p>
-      </div>
+  <main class="blog-container">
+
+    <div class="entrada">
+      <h2>¿Qué tipo de luminaria es mejor para tu casa?</h2>
+      <p>Las luminarias LED son las más eficientes y duraderas, pero en algunos casos los fluorescentes aún tienen ventajas. En esta entrada te contamos cuál se adapta mejor según tu espacio y necesidades.</p>
     </div>
+
+    <div class="entrada">
+      <h2>5 señales de que necesitas una revisión eléctrica urgente</h2>
+      <p>¿Luces que parpadean, interruptores calientes o enchufes que no funcionan? Estas son algunas señales claras de que es momento de llamar a un profesional antes de que ocurra un accidente.</p>
+    </div>
+
+    <div class="entrada">
+      <h2>Cómo calcular el consumo eléctrico de tus electrodomésticos</h2>
+      <p>Te enseñamos a calcular el consumo en kWh de cada aparato, para que puedas estimar el gasto mensual y aplicar medidas de ahorro real en casa o negocio.</p>
+    </div>
+
+    <div class="entrada">
+      <h2>La importancia del cableado estructurado en oficinas</h2>
+      <p>Un cableado ordenado no solo mejora la estética del lugar, sino que también optimiza el rendimiento, reduce riesgos eléctricos y facilita el mantenimiento.</p>
+    </div>
+
+    <div class="entrada">
+      <h2>Qué hacer cuando salta el breaker o disyuntor</h2>
+      <p>¿Se fue la luz en una parte de la casa y el breaker está abajo? Aquí te damos una guía paso a paso para revisarlo tú mismo y saber cuándo es momento de llamar a un experto.</p>
+    </div>
+
   </main>
 
   <footer>
