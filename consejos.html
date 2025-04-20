@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Consejos Eléctricos - MANOVOLT</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #0c1e2c, #1a3a4d);
+      color: #ffffff;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: rgba(0, 0, 0, 0.7);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      font-size: 1.7rem;
+      font-weight: bold;
+      color: #fcd000;
+    }
+
+    .logo span {
+      margin-left: 10px;
+      color: white;
+    }
+
+    nav a {
+      margin-left: 20px;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .blog-section {
+      padding: 60px 40px;
+      text-align: center;
+    }
+
+    .blog-section h2 {
+      font-size: 2.2rem;
+      color: #fcd000;
+      margin-bottom: 40px;
+    }
+
+    .blog-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      padding: 0 20px;
+    }
+
+    .blog-card {
+      background-color: #1c2e40;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.4);
+      transition: transform 0.3s ease;
+    }
+
+    .blog-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .blog-card i {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+      color: #fcd000;
+    }
+
+    .blog-card h3 {
+      color: #fcd000;
+      margin-bottom: 10px;
+    }
+
+    .blog-card p {
+      font-size: 1rem;
+      color: #ccc;
+    }
+
+    footer {
+      background-color: #0c1e2c;
+      text-align: center;
+      padding: 20px;
+      color: #ccc;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">⚡<span>MANOVOLT</span></div>
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="galeria.html">Galería</a>
+      <a href="#">Blog</a>
+    </nav>
+  </header>
+
+  <main class="blog-section">
+    <h2>Consejos Eléctricos</h2>
+    <div class="blog-container">
+      <div class="blog-card">
+        <i class="fas fa-lightbulb"></i>
+        <h3>¿Cómo elegir focos LED?</h3>
+        <p>Aprendé a seleccionar los mejores focos LED para ahorrar energía y mejorar la iluminación de tu hogar o negocio.</p>
+      </div>
+      <div class="blog-card">
+        <i class="fas fa-bolt"></i>
+        <h3>¿Qué hacer ante una sobrecarga?</h3>
+        <p>Te explicamos los pasos para actuar con seguridad si se sobrecarga un circuito eléctrico en casa o en el trabajo.</p>
+      </div>
+      <div class="blog-card">
+        <i class="fas fa-plug"></i>
+        <h3>Tips para ahorrar energía</h3>
+        <p>Descubrí consejos prácticos para reducir tu consumo eléctrico y pagar menos en tu factura de luz cada mes.</p>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    © 2025 MANOVOLT - Todos los derechos reservados
+  </footer>
+</body>
+</html>
