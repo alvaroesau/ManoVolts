@@ -96,6 +96,35 @@
     </div>
 
   </main>
+<!-- Sección de Consejos eléctricos -->
+<section class="consejos" id="consejos" style="padding: 60px 40px; background-color: #f8f8f8; color: #000;">
+  <h2 style="text-align: center; color: #fcd000; font-size: 2rem; margin-bottom: 30px;">Consejos Eléctricos</h2>
+
+  <!-- Consejo 1 -->
+  <div class="consejo" style="margin-bottom: 30px;">
+    <h3>¿Qué hacer cuando salta el breaker o disyuntor?</h3>
+    <p>¿Se fue la luz en una parte de la casa y el breaker está abajo? Aquí te damos una guía paso a paso para revisarlo tú mismo.</p>
+    <button onclick="document.getElementById('modal-breaker').style.display='block'" style="padding: 8px 16px; background-color: #fcd000; border: none; border-radius: 5px; cursor: pointer;">Ver más</button>
+  </div>
+
+  <!-- Modal 1 -->
+  <div id="modal-breaker" style="display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.7);">
+    <div style="background-color: white; margin: 10% auto; padding: 20px; border-radius: 10px; width: 90%; max-width: 600px; color: #000; position: relative;">
+      <span onclick="document.getElementById('modal-breaker').style.display='none'" style="position: absolute; top: 10px; right: 20px; font-size: 28px; font-weight: bold; cursor: pointer;">&times;</span>
+      <h3>Guía paso a paso</h3>
+      <ol>
+        <li>Desconecta todos los aparatos conectados en la zona afectada.</li>
+        <li>Sube el breaker o disyuntor que está abajo.</li>
+        <li>Si vuelve a bajar de inmediato, probablemente hay un corto o sobrecarga.</li>
+        <li>No lo sigas forzando: esto puede dañar más el sistema.</li>
+        <li>Llama a un técnico si el breaker no se mantiene arriba o si no sabes cuál es el problema.</li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- Aquí irán los siguientes consejos (2 a 5) con sus respectivos modales -->
+
+</section>
 
   <footer>
     © 2025 MANOVOLT - Todos los derechos reservados
