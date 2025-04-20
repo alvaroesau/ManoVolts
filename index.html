@@ -44,28 +44,56 @@
       font-weight: bold;
     }
 
-    .hero {
-      padding: 80px 40px;
+    .hero-container {
       display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      max-width: 800px;
-      animation: fadeIn 1.5s ease-in-out;
+      align-items: center;
+      gap: 40px;
+      flex-wrap: wrap;
+      padding: 80px 40px;
     }
 
-    .hero h1 {
+    .hero-img img {
+      max-width: 300px;
+      border-radius: 10px;
+      width: 100%;
+    }
+
+    .hero-text {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .hero-text h1 {
       font-size: 2.8rem;
       margin-bottom: 20px;
     }
 
-    .hero p {
+    .hero-text p {
       font-size: 1.3rem;
       line-height: 1.6;
     }
-    .contacto p {
-      font-size: 1.3rem;
-      line-height: 1.6;
+
+    @media (max-width: 768px) {
+      .hero-container {
+        flex-direction: column-reverse;
+        text-align: center;
+        padding: 40px 20px;
+      }
+
+      .hero-img img {
+        margin: 20px auto 0;
+      }
+
+      nav {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      nav a {
+        margin: 10px 0;
+      }
     }
+
     .servicios {
       background-color: #f8f8f8;
       color: #000;
@@ -117,50 +145,11 @@
       z-index: 1000;
     }
 
-    @media (max-width: 600px) {
-      header, .hero, .servicios {
-        padding: 20px;
-      }
-
-      .hero h1 {
-        font-size: 2rem;
-      }
-
-      .hero p {
-        font-size: 1rem;
-      }
-
-      .hero {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-      }
-
-      .hero img {
-        max-width: 80%;
-        margin-top: 20px;
-      }
-
-      nav {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
-
-      nav a {
-        margin: 10px 0;
-      }
-
-      .servicios ul {
-        padding-left: 0;
-      }
-
-      .servicios li {
-        font-size: 1.1rem;
-      }
+    .contacto p {
+      font-size: 1.3rem;
+      line-height: 1.6;
     }
 
-    /* Animaciones */
     .fade-in {
       opacity: 0;
       transform: translateY(30px);
@@ -189,16 +178,19 @@
   </header>
 
   <main>
-<section class="hero fade-in" id="inicio">
-  <div style="max-width: 60%;">
-    <h1>Conectamos tu hogar con seguridad y confianza</h1>
-    <p>
-      En MANOVOLT contamos con más de <strong>9 años de experiencia en el área eléctrica</strong>, conformando un equipo de trabajo sólido junto a <strong>tres ingenieros especializados</strong>. Nuestra misión es ofrecer <strong>soluciones eléctricas seguras, eficientes y duraderas</strong>, abarcando desde instalaciones básicas hasta proyectos integrales tanto a nivel residencial como comercial.
-    </p>
-  </div>
-  <img src="electricista.png" alt="Electricista" style="max-width: 35%; height: auto; border-radius: 10px;" />
-</section>
-
+    <section class="hero fade-in" id="inicio">
+      <div class="hero-container">
+        <div class="hero-img">
+          <img src="electricista.png" alt="Electricista" />
+        </div>
+        <div class="hero-text">
+          <h1>Conectamos tu hogar con seguridad y confianza</h1>
+          <p>
+            En MANOVOLT contamos con más de <strong>9 años de experiencia en el área eléctrica</strong>, conformando un equipo de trabajo sólido junto a <strong>tres ingenieros especializados</strong>. Nuestra misión es ofrecer <strong>soluciones eléctricas seguras, eficientes y duraderas</strong>, abarcando desde instalaciones básicas hasta proyectos integrales tanto a nivel residencial como comercial.
+          </p>
+        </div>
+      </div>
+    </section>
 
     <section class="servicios fade-in" id="servicios">
       <h2>Servicios</h2>
@@ -206,45 +198,29 @@
         <li><i class="fas fa-lightbulb"></i> Instalación de lámparas, focos, tomacorrientes y apagadores</li>
         <li><i class="fas fa-tools"></i> Mantenimiento y corrección de fallas eléctricas</li>
         <li><i class="fas fa-bolt"></i> Instalación de tableros y protecciones</li>
-        <li><i class="fas fa-bolt"></i> Diseño de planos Electricos</li>
+        <li><i class="fas fa-bolt"></i> Diseño de planos eléctricos</li>
         <li><i class="fas fa-house"></i> Cableado residencial y comercial</li>
         <li><i class="fas fa-exclamation-triangle"></i> Revisión de cortocircuitos y sobrecargas</li>
         <li><i class="fas fa-comments"></i> Asesoría para nuevos proyectos</li>
-        <li><i class="fas fa-comments"></i> Asesoría para Revision de planos para OIA</li>
+        <li><i class="fas fa-comments"></i> Revisión de planos para OIA</li>
       </ul>
       <div class="zona">Zonas de trabajo: El Salvador</div>
     </section>
-<section class="servicios fade-in" id="mision-vision">
-  <h2>Misión y Visión</h2>
-  <div style="margin-bottom: 30px;">
-    <h3 style="color: #fcd000;">Misión</h3>
-    <p>
-      Brindar servicios eléctricos seguros, eficientes y personalizados, adaptados a las necesidades de cada cliente, asegurando calidad, cumplimiento y profesionalismo en cada proyecto realizado.
-    </p>
-  </div>
-  <div>
-    <h3 style="color: #fcd000;">Visión</h3>
-    <p>
-      Ser reconocidos como una empresa líder en soluciones eléctricas integrales en El Salvador, destacando por nuestra innovación, responsabilidad y compromiso con la seguridad eléctrica.
-    </p>
-  </div>
-</section>
 
-<section class="contacto fade-in" id="contacto">
-  <h3>Contacto</h3>
-  <p>¿Necesitas instalar un tomacorriente, una luminaria o una revisión eléctrica completa? También realizamos asesorías y proyectos eléctricos personalizados. ¡Estamos listos para ayudarte!</p>
-  <ul>
-    <li><i class="fas fa-phone-alt"></i> <strong>Teléfono:</strong> <a href="tel:+50374646746" style="color: white;">7465-6746</a></li>
-    <li><i class="fas fa-envelope"></i> <strong>Correo:</strong> <a href="mailto:manovols.electricidadsegura@hotmail.com" style="color: white;">manovols.electricidadsegura@hotmail.com</a></li>
-  </ul>
-  
-  <p style="margin-top: 20px;">
-    <a href="formulario.html" style="background: #fcd000; color: #000; padding: 12px 20px; border-radius: 5px; font-weight: bold; text-decoration: none;">
-      Llena el formulario de contacto
-    </a>
-  </p>
-</section>
+    <section class="contacto fade-in" id="contacto">
+      <h3>Contacto</h3>
+      <p>¿Necesitás instalar un tomacorriente, una luminaria o una revisión eléctrica completa? También realizamos asesorías y proyectos eléctricos personalizados. ¡Estamos listos para ayudarte!</p>
+      <ul>
+        <li><i class="fas fa-phone-alt"></i> <strong>Teléfono:</strong> <a href="tel:+50374646746" style="color: white;">7465-6746</a></li>
+        <li><i class="fas fa-envelope"></i> <strong>Correo:</strong> <a href="mailto:manovols.electricidadsegura@hotmail.com" style="color: white;">manovols.electricidadsegura@hotmail.com</a></li>
+      </ul>
 
+      <p style="margin-top: 20px;">
+        <a href="formulario.html" style="background: #fcd000; color: #000; padding: 12px 20px; border-radius: 5px; font-weight: bold; text-decoration: none;">
+          Llena el formulario de contacto
+        </a>
+      </p>
+    </section>
   </main>
 
   <footer>
