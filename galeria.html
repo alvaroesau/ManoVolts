@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Galería de Proyectos - MANOVOLT</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #0c1e2c;
+      color: white;
+    }
+
+    header {
+      background-color: rgba(0, 0, 0, 0.8);
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #fcd000;
+    }
+
+    nav a {
+      margin-left: 20px;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .galeria {
+      padding: 60px 30px;
+      text-align: center;
+    }
+
+    .galeria h1 {
+      color: #fcd000;
+      margin-bottom: 40px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+    }
+
+    .card {
+      background-color: #1a3a4d;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: scale(1.03);
+    }
+
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .card p {
+      padding: 15px;
+      font-size: 1rem;
+      color: #ddd;
+    }
+
+    footer {
+      background-color: #000;
+      text-align: center;
+      padding: 20px;
+      color: #bbb;
+      margin-top: 40px;
+    }
+
+    @media (max-width: 600px) {
+      .galeria h1 {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">⚡ MANOVOLT</div>
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="formulario.html">Contacto</a>
+      <a href="galeria.html">Galería</a>
+    </nav>
+  </header>
+
+  <section class="galeria">
+    <h1>Galería de Proyectos</h1>
+    <div class="grid">
+      <div class="card">
+        <img src="img/proyecto1.jpg" alt="Proyecto 1" />
+        <p>Instalación de luminarias en oficina. Modernización completa del sistema eléctrico.</p>
+      </div>
+      <div class="card">
+        <img src="img/proyecto2.jpg" alt="Proyecto 2" />
+        <p>Canalización de cables en tubería EMT con acabado profesional y seguro.</p>
+      </div>
+      <div class="card">
+        <img src="img/proyecto3.jpg" alt="Proyecto 3" />
+        <p>Tablero eléctrico con protecciones bien distribuidas y rotuladas.</p>
+      </div>
+      <div class="card">
+        <img src="img/proyecto4.jpg" alt="Proyecto 4" />
+        <p>Instalación eléctrica residencial desde cero con distribución eficiente.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 MANOVOLT - Todos los derechos reservados
+  </footer>
+</body>
+</html>
