@@ -4,18 +4,55 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Formulario de Contacto - MANOVOLT</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <style>
     body {
       font-family: Arial, sans-serif;
       background: linear-gradient(135deg, #0c1e2c, #1a3a4d);
       color: white;
       margin: 0;
-      padding: 40px;
+      padding: 0;
+    }
+
+    header {
+      background-color: #0c1e2c;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #fcd000;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 8px 12px;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+
+    nav a:hover {
+      background-color: #fcd000;
+      color: #000;
     }
 
     h2 {
       color: #fcd000;
       text-align: center;
+      margin-top: 40px;
     }
 
     form {
@@ -93,24 +130,34 @@
 </head>
 <body>
 
+  <!-- Menú -->
+  <header>
+    <div class="logo">⚡<span>MANOVOLT</span></div>
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="galeria.html">Galería</a>
+      <a href="consejos.html">Consejos</a>
+      <a href="contacto.html">Contacto</a>
+    </nav>
+  </header>
+
   <h2>Formulario de Contacto</h2>
 
   <form id="contact-form">
-  <label for="nombre">Nombre completo:</label>
-  <input type="text" id="nombre" name="nombre" required>
+    <label for="nombre">Nombre completo:</label>
+    <input type="text" id="nombre" name="nombre" required>
 
-  <label for="telefono">Número de teléfono:</label>
-  <input type="tel" id="telefono" name="telefono" required pattern="[0-9]{8}" placeholder="Ej: 74656746">
+    <label for="telefono">Número de teléfono:</label>
+    <input type="tel" id="telefono" name="telefono" required pattern="[0-9]{8}" placeholder="Ej: 74656746">
 
-  <label for="correo">Correo electrónico:</label>
-  <input type="email" id="correo" name="correo" required>
+    <label for="correo">Correo electrónico:</label>
+    <input type="email" id="correo" name="correo" required>
 
-  <label for="mensaje">Mensaje:</label>
-  <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+    <label for="mensaje">Mensaje:</label>
+    <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
 
-  <button type="submit">Enviar mensaje</button>
-</form>
-
+    <button type="submit">Enviar mensaje</button>
+  </form>
 
   <!-- Modal de confirmación -->
   <div class="modal" id="modal">
@@ -123,9 +170,8 @@
 
   <script>
     document.getElementById('contact-form').addEventListener('submit', function (e) {
-      e.preventDefault(); // evita redireccionar
+      e.preventDefault();
 
-      // Envía los datos a FormSubmit
       const form = e.target;
       const data = new FormData(form);
 
