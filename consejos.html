@@ -64,6 +64,72 @@
   .boton-wsp:hover {
     transform: scale(1.1);
   }
+  .consejos {
+  padding: 50px 20px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.consejos h2 {
+  text-align: center;
+  font-size: 32px;
+  color: #333;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.consejos h2::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 4px;
+  background-color: #fcd000;
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+
+.consejo {
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  padding: 25px;
+  margin-bottom: 30px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.consejo:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+.consejo h3 {
+  margin-top: 0;
+  color: #111;
+  font-size: 22px;
+}
+
+.consejo p {
+  font-size: 16px;
+  color: #555;
+  line-height: 1.6;
+}
+
+.btn-modal {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 10px 20px;
+  background-color: #fcd000;
+  border: none;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn-modal:hover {
+  background-color: #e5ba00;
+}
+
 </style>
 
 
