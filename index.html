@@ -6,14 +6,12 @@
   <title>MANOVOLT - Servicios Eléctricos</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <style>
-      body {
+    body {
       margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background: linear-gradient(135deg, #0c1e2c, #1a3a4d);
       color: #ffffff;
-      }
-
-
+    }
 
     header {
       display: flex;
@@ -42,11 +40,25 @@
       color: white;
     }
 
+    nav {
+      display: flex;
+      align-items: center;
+    }
+
     nav a {
       margin-left: 20px;
       color: white;
       text-decoration: none;
       font-weight: bold;
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 24px;
+      color: white;
+      background: none;
+      border: none;
+      cursor: pointer;
     }
 
     .hero {
@@ -175,8 +187,24 @@
       z-index: 1000;
     }
 
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 1s ease-out, transform 1s ease-out;
+    }
+
+    .fade-in.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
     @media (max-width: 600px) {
-      header, .hero, .servicios {
+      header {
         padding: 20px;
       }
 
@@ -203,13 +231,31 @@
       }
 
       nav {
-        display: flex;
+        display: none;
         flex-direction: column;
-        align-items: center;
+        align-items: flex-start;
+        background-color: rgba(0, 0, 0, 0.95);
+        position: absolute;
+        top: 70px;
+        right: 20px;
+        padding: 15px;
+        border-radius: 10px;
+      }
+
+      nav.show {
+        display: flex;
       }
 
       nav a {
         margin: 10px 0;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .servicios {
+        padding: 20px;
       }
 
       .servicios ul {
@@ -220,34 +266,18 @@
         font-size: 1.1rem;
       }
     }
-
-    .fade-in {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 1s ease-out, transform 1s ease-out;
-    }
-
-    .fade-in.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-}
-
   </style>
 </head>
 <body>
   <header>
     <div class="logo">
       <img src="logo-manovolt.jpg" alt="Logo MANOVOLT">
-      
       <span>MANOVOLT</span>
     </div>
-    <nav>
+    <button class="menu-toggle" id="menu-toggle">
+      <i class="fas fa-bars"></i>
+    </button>
+    <nav id="nav">
       <a href="#inicio">Inicio</a>
       <a href="#servicios">Servicios</a>
       <a href="#testimonios">Testimonios</a>
@@ -344,6 +374,21 @@
       });
     });
     elements.forEach(el => observer.observe(el));
+
+    // Toggle menu responsive
+    const toggleButton = document.getElementById('menu-toggle');
+    const nav = document.getElementById('nav');
+
+    toggleButton.addEventListener('click', () => {
+      nav.classList.toggle('show');
+    });
+
+    // Optional: close menu when clicking a link (mobile)
+    nav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        nav.classList.remove('show');
+      });
+    });
   </script>
 </body>
 </html>
