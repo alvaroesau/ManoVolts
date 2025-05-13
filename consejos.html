@@ -223,4 +223,129 @@
   <section class="consejos fade-in" id="consejos">
     <h2>Consejos eléctricos útiles</h2>
 
-    <div class="
+    <div class="consejo">
+      <h3>¿Qué hacer cuando salta el breaker o disyuntor?</h3>
+      <p>¿Se fue la luz en una parte de la casa y el breaker está abajo? Aquí te damos una guía paso a paso para revisarlo tú mismo y saber cuándo es momento de llamar a un experto.</p>
+      <button class="btn-modal" onclick="document.getElementById('modal1').style.display='block'">Ver más</button>
+    </div>
+
+    <div class="consejo">
+      <h3>Evita sobrecargas eléctricas en el hogar</h3>
+      <p>Conectar muchos aparatos en un solo enchufe puede generar sobrecalentamientos. Aquí te explicamos cómo prevenirlo.</p>
+      <button class="btn-modal" onclick="document.getElementById('modal2').style.display='block'">Ver más</button>
+    </div>
+
+    <div class="consejo">
+      <h3>¿Cómo detectar un tomacorriente dañado?</h3>
+      <p>Si una toma está caliente, chispea o tiene mal olor, puede estar dañada. Aprende a identificarlo a tiempo.</p>
+      <button class="btn-modal" onclick="document.getElementById('modal3').style.display='block'">Ver más</button>
+    </div>
+
+    <div class="consejo">
+      <h3>Tips para ahorrar energía eléctrica en casa</h3>
+      <p>Pequeños cambios pueden ayudarte a reducir tu factura. Aquí te damos algunos consejos prácticos.</p>
+      <button class="btn-modal" onclick="document.getElementById('modal4').style.display='block'">Ver más</button>
+    </div>
+
+    <div class="consejo">
+      <h3>¿Cuándo es necesario cambiar la instalación eléctrica?</h3>
+      <p>Una instalación vieja puede ser peligrosa. Conoce las señales que indican que necesitas renovarla.</p>
+      <button class="btn-modal" onclick="document.getElementById('modal5').style.display='block'">Ver más</button>
+    </div>
+  </section>
+
+  <!-- Modales -->
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="document.getElementById('modal1').style.display='none'">&times;</span>
+      <h3>Pasos para revisar el breaker:</h3>
+      <ul>
+        <li>Apaga todos los interruptores.</li>
+        <li>Revisa si hay algún aparato quemado o enchufado que causó el fallo.</li>
+        <li>Sube el breaker principal y luego los secundarios uno a uno.</li>
+        <li>Si vuelve a botarse, hay una sobrecarga o corto circuito. Llama a un electricista.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div id="modal2" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="document.getElementById('modal2').style.display='none'">&times;</span>
+      <h3>Consejos para evitar sobrecargas:</h3>
+      <ul>
+        <li>No uses múltiples extensiones en una sola toma.</li>
+        <li>Evita conectar aparatos de alto consumo en el mismo enchufe.</li>
+        <li>Desconecta lo que no estés usando.</li>
+        <li>Considera instalar un protector de voltaje.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div id="modal3" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="document.getElementById('modal3').style.display='none'">&times;</span>
+      <h3>Señales de tomacorriente en mal estado:</h3>
+      <ul>
+        <li>Chispeo al conectar o desconectar.</li>
+        <li>Olor a quemado en el área.</li>
+        <li>Coloración negra o derretida alrededor.</li>
+        <li>Falta de sujeción del enchufe.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div id="modal4" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="document.getElementById('modal4').style.display='none'">&times;</span>
+      <h3>Formas de ahorrar energía:</h3>
+      <ul>
+        <li>Usa focos LED en lugar de incandescentes.</li>
+        <li>Desconecta cargadores y electrodomésticos no utilizados.</li>
+        <li>Utiliza electrodomésticos eficientes (clasificación A).</li>
+        <li>Aprovecha la luz natural durante el día.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div id="modal5" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="document.getElementById('modal5').style.display='none'">&times;</span>
+      <h3>¿Cuándo renovar la instalación eléctrica?</h3>
+      <ul>
+        <li>Si la casa tiene más de 20 años sin cambios.</li>
+        <li>Cuando hay constantes bajones de voltaje.</li>
+        <li>Si los breakers se disparan seguido.</li>
+        <li>Presencia de cables expuestos o aislantes deteriorados.</li>
+      </ul>
+    </div>
+  </div>
+
+  <footer>
+    © 2025 MANOVOLT - Todos los derechos reservados
+  </footer>
+
+  <a href="https://wa.me/50374656746" target="_blank" class="boton-wsp" aria-label="Contactar por WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <script>
+    const elements = document.querySelectorAll('.fade-in');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    });
+    elements.forEach(el => observer.observe(el));
+
+    // Hamburguesa toggle
+    const toggle = document.getElementById('menu-toggle');
+    const nav = document.getElementById('nav-links');
+
+    toggle.addEventListener('click', () => {
+      nav.classList.toggle('active');
+    });
+  </script>
+</body>
+</html>
