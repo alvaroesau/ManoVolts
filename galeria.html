@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title data-i18n="title">Galería - MANOVOLT</title>
+  <title>Galería - MANOVOLT</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
@@ -31,11 +31,6 @@
       color: #fcd000;
     }
 
-    nav {
-      display: flex;
-      align-items: center;
-    }
-
     nav a {
       margin-left: 20px;
       color: white;
@@ -46,64 +41,6 @@
 
     nav a:hover {
       color: #fcd000;
-    }
-
-    .menu-toggle {
-      display: none;
-      flex-direction: column;
-      cursor: pointer;
-    }
-
-    .menu-toggle span {
-      height: 3px;
-      width: 25px;
-      background: #fcd000;
-      margin: 4px 0;
-      border-radius: 2px;
-      transition: all 0.3s ease;
-    }
-
-    .language-switcher {
-      margin-left: 20px;
-      color: #fcd000;
-      font-weight: 600;
-    }
-
-    .language-switcher select {
-      background: #0c1e2c;
-      color: #fcd000;
-      border: none;
-      font-size: 1rem;
-    }
-
-    @media (max-width: 768px) {
-      nav {
-        position: absolute;
-        top: 70px;
-        left: 0;
-        right: 0;
-        background: #0c1e2c;
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 10px 40px;
-        display: none;
-      }
-
-      nav.active {
-        display: flex;
-      }
-
-      nav a {
-        margin: 10px 0;
-      }
-
-      .menu-toggle {
-        display: flex;
-      }
-
-      .language-switcher {
-        margin-top: 10px;
-      }
     }
 
     h1 {
@@ -158,6 +95,7 @@
       color: #555;
     }
 
+    /* Responsive grid */
     @media (min-width: 600px) {
       .gallery {
         columns: 2;
@@ -170,6 +108,7 @@
       }
     }
 
+    /* Lightbox overlay */
     .lightbox {
       position: fixed;
       top: 0; left: 0;
@@ -214,6 +153,7 @@
       color: #fcd000;
     }
 
+    /* WhatsApp flotante */
     .whatsapp-float {
       position: fixed;
       bottom: 20px;
@@ -242,49 +182,72 @@
 
 <header>
   <div class="logo">⚡<span>MANOVOLT</span></div>
-  <div class="menu-toggle" id="menu-toggle">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-  <nav id="nav">
-    <a href="index.html" data-i18n="home">Inicio</a>
-    <a href="formulario.html" data-i18n="contact">Contacto</a>
-    <a href="consejos.html" data-i18n="tips">Consejos</a>
-    <div class="language-switcher">
-      <select id="lang-select">
-        <option value="es">Español</option>
-        <option value="en">English</option>
-        <option value="zh">中文</option>
-      </select>
-    </div>
+  <nav>
+    <a href="index.html">Inicio</a>
+    <a href="formulario.html">Contacto</a>   
+    <a href="consejos.html">Consejos</a>
   </nav>
 </header>
 
-<h1 data-i18n="gallery_title">Galería de Proyectos</h1>
+<h1>Galería de Proyectos</h1>
 
 <main>
   <section class="gallery">
     <div class="gallery-item">
-      <a href="#img1"><img src="proyecto1.jpg" alt="Imagen 1" /></a>
-      <h3 data-i18n="project1_title">Rotulación de Tableros</h3>
-      <p data-i18n="project1_desc">Tableros rotulados para un control más eficiente.</p>
+      <a href="#img1"><img src="proyecto1.jpg" alt="Instalación de luminarias"></a>
+      <h3>Rotulación de Tableros</h3>
+      <p>Tableros rotulados para un control más eficiente.</p>
     </div>
     <div class="gallery-item">
-      <a href="#img2"><img src="proyecto2.png" alt="Imagen 2" /></a>
-      <h3 data-i18n="project2_title">Instalación eléctrica comercial</h3>
-      <p data-i18n="project2_desc">Montajes seguros para negocios y oficinas.</p>
+      <a href="#img2"><img src="proyecto2.png" alt="Instalación eléctrica comercial"></a>
+      <h3>Instalación eléctrica comercial</h3>
+      <p>Montajes seguros para negocios y oficinas.</p>
     </div>
-    <!-- Puedes añadir más elementos aquí -->
+    <div class="gallery-item">
+      <a href="#img3"><img src="proyecto3.jpg" alt="Mantenimiento eléctrico"></a>
+      <h3>Mantenimiento y reparación eléctrica</h3>
+      <p>Soluciones preventivas y correctivas efectivas.</p>
+    </div>
+    <div class="gallery-item">
+      <a href="#img4"><img src="proyecto4.jpg" alt="Cableado residencial"></a>
+      <h3>Cableado residencial</h3>
+      <p>Instalaciones limpias y seguras para el hogar.</p>
+    </div>
+    <div class="gallery-item">
+      <a href="#img5"><img src="imagen01.jpg" alt="Canalizado decorativo"></a>
+      <h3>Canalizado decorativo</h3>
+      <p>Estética funcional para ambientes modernos.</p>
+    </div>
+    <div class="gallery-item">
+      <a href="#img6"><img src="imagen02.jpg" alt="Luminaria decorativa"></a>
+      <h3>Luminaria decorativa</h3>
+      <p>Ambientes cálidos con luz ambiental dirigida.</p>
+    </div>
+    <div class="gallery-item">
+      <a href="#img7"><img src="imagen03.jpg" alt="Iluminación de paredes"></a>
+      <h3>Iluminación de paredes</h3>
+      <p>Luminarias adosadas que realzan texturas y diseño.</p>
+    </div>
+    <div class="gallery-item">
+      <a href="#img8"><img src="imagen04.jpg" alt="Cielo falso con luminarias"></a>
+      <h3>Cielo falso con iluminación</h3>
+      <p>Instalación profesional de techos e iluminación.</p>
+    </div>
   </section>
 </main>
 
-<!-- Lightboxes -->
-<div class="lightbox" id="img1"><img src="proyecto1.jpg" alt="Imagen ampliada 1"></div>
-<div class="lightbox" id="img2"><img src="proyecto2.png" alt="Imagen ampliada 2"></div>
+<!-- Lightbox -->
+<div class="lightbox" id="img1"><img src="proyecto1.jpg" alt="Imagen ampliada"></div>
+<div class="lightbox" id="img2"><img src="proyecto2.png" alt="Imagen ampliada"></div>
+<div class="lightbox" id="img3"><img src="proyecto3.jpg" alt="Imagen ampliada"></div>
+<div class="lightbox" id="img4"><img src="proyecto4.jpg" alt="Imagen ampliada"></div>
+<div class="lightbox" id="img5"><img src="imagen01.jpg" alt="Imagen ampliada"></div>
+<div class="lightbox" id="img6"><img src="imagen02.jpg" alt="Imagen ampliada"></div>
+<div class="lightbox" id="img7"><img src="imagen03.jpg" alt="Imagen ampliada"></div>
+<div class="lightbox" id="img8"><img src="imagen04.jpg" alt="Imagen ampliada"></div>
 
 <footer>
-  © 2025 MANOVOLT - <span data-i18n="rights">Todos los derechos reservados</span>
+  © 2025 MANOVOLT - Todos los derechos reservados
   <div class="social-icons">
     <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
     <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
@@ -295,65 +258,6 @@
 <a href="https://wa.me/5211234567890" class="whatsapp-float" target="_blank" title="Contáctanos por WhatsApp">
   <i class="fab fa-whatsapp"></i>
 </a>
-
-<!-- Script -->
-<script>
-  const translations = {
-    es: {
-      title: "Galería - MANOVOLT",
-      home: "Inicio",
-      contact: "Contacto",
-      tips: "Consejos",
-      gallery_title: "Galería de Proyectos",
-      project1_title: "Rotulación de Tableros",
-      project1_desc: "Tableros rotulados para un control más eficiente.",
-      project2_title: "Instalación eléctrica comercial",
-      project2_desc: "Montajes seguros para negocios y oficinas.",
-      rights: "Todos los derechos reservados"
-    },
-    en: {
-      title: "Gallery - MANOVOLT",
-      home: "Home",
-      contact: "Contact",
-      tips: "Tips",
-      gallery_title: "Project Gallery",
-      project1_title: "Panel Labeling",
-      project1_desc: "Labeled panels for better control.",
-      project2_title: "Commercial Electrical Installation",
-      project2_desc: "Safe setups for businesses and offices.",
-      rights: "All rights reserved"
-    },
-    zh: {
-      title: "画廊 - MANOVOLT",
-      home: "首页",
-      contact: "联系",
-      tips: "建议",
-      gallery_title: "项目画廊",
-      project1_title: "配电盘标签",
-      project1_desc: "用于高效控制的标记面板。",
-      project2_title: "商业电气安装",
-      project2_desc: "为企业和办公室提供安全的安装。",
-      rights: "版权所有"
-    }
-  };
-
-  const toggle = document.getElementById("menu-toggle");
-  const nav = document.getElementById("nav");
-  toggle.addEventListener("click", () => {
-    nav.classList.toggle("active");
-  });
-
-  const langSelect = document.getElementById("lang-select");
-  langSelect.addEventListener("change", (e) => {
-    const lang = e.target.value;
-    const elements = document.querySelectorAll("[data-i18n]");
-    elements.forEach(el => {
-      const key = el.getAttribute("data-i18n");
-      el.textContent = translations[lang][key] || el.textContent;
-    });
-    document.title = translations[lang]["title"];
-  });
-</script>
 
 </body>
 </html>
