@@ -1,143 +1,3 @@
-<style>
-  body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f8f9fa;
-  }
-
-  header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #000;
-    padding: 10px 20px;
-    color: #fff;
-  }
-
-  .logo {
-    font-size: 24px;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-  }
-
-  .logo span {
-    margin-left: 5px;
-    color: #fcd000;
-  }
-
-  nav a {
-    color: #fff;
-    text-decoration: none;
-    margin-left: 20px;
-    font-weight: bold;
-    transition: color 0.3s;
-  }
-
-  nav a:hover {
-    color: #fcd000;
-  }
-
-  footer {
-    background-color: #000;
-    color: #fff;
-    text-align: center;
-    padding: 15px 0;
-    margin-top: 30px;
-  }
-
-  .boton-wsp {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: #25d366;
-    color: #fff;
-    border-radius: 50%;
-    padding: 15px;
-    font-size: 24px;
-    z-index: 1000;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-    text-decoration: none;
-    transition: transform 0.2s;
-  }
-
-  .boton-wsp:hover {
-    transform: scale(1.1);
-  }
-  .consejos {
-  padding: 50px 20px;
-  max-width: 1200px;
-  margin: auto;
-}
-
-.consejos h2 {
-  text-align: center;
-  font-size: 32px;
-  color: #333;
-  margin-bottom: 40px;
-  position: relative;
-}
-
-.consejos h2::after {
-  content: '';
-  display: block;
-  width: 80px;
-  height: 4px;
-  background-color: #fcd000;
-  margin: 10px auto 0;
-  border-radius: 2px;
-}
-
-.consejo {
-  background-color: #fff;
-  border-radius: 15px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  padding: 25px;
-  margin-bottom: 30px;
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.consejo:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-}
-
-.consejo h3 {
-  margin-top: 0;
-  color: #111;
-  font-size: 22px;
-}
-
-.consejo p {
-  font-size: 16px;
-  color: #555;
-  line-height: 1.6;
-}
-
-.btn-modal {
-  display: inline-block;
-  margin-top: 15px;
-  padding: 10px 20px;
-  background-color: #fcd000;
-  border: none;
-  font-weight: bold;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.btn-modal:hover {
-  background-color: #e5ba00;
-}
-    /* (Estilos previos permanecen igual) */
-    .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.8); }
-    .modal-content { background-color: #fff; margin: 10% auto; padding: 30px; border-radius: 10px; width: 90%; max-width: 600px; color: #000; }
-    .close { color: #333; float: right; font-size: 28px; font-weight: bold; cursor: pointer; }
-    .btn-modal { margin-top: 15px; padding: 10px 20px; background-color: #fcd000; border: none; font-weight: bold; border-radius: 5px; cursor: pointer; }
-</style>
-
-
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -145,135 +5,222 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>MANOVOLT - Servicios Eléctricos</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f8f9fa;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #000;
+      padding: 10px 20px;
+      color: #fff;
+      position: relative;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+    }
+
+    .logo span {
+      margin-left: 5px;
+      color: #fcd000;
+    }
+
+    nav {
+      display: flex;
+      gap: 20px;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #fcd000;
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 28px;
+      cursor: pointer;
+      color: #fff;
+    }
+
+    footer {
+      background-color: #000;
+      color: #fff;
+      text-align: center;
+      padding: 15px 0;
+      margin-top: 30px;
+    }
+
+    .boton-wsp {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25d366;
+      color: #fff;
+      border-radius: 50%;
+      padding: 15px;
+      font-size: 24px;
+      z-index: 1000;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      text-decoration: none;
+      transition: transform 0.2s;
+    }
+
+    .boton-wsp:hover {
+      transform: scale(1.1);
+    }
+
+    .consejos {
+      padding: 50px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .consejos h2 {
+      text-align: center;
+      font-size: 32px;
+      color: #333;
+      margin-bottom: 40px;
+      position: relative;
+    }
+
+    .consejos h2::after {
+      content: '';
+      display: block;
+      width: 80px;
+      height: 4px;
+      background-color: #fcd000;
+      margin: 10px auto 0;
+      border-radius: 2px;
+    }
+
+    .consejo {
+      background-color: #fff;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      padding: 25px;
+      margin-bottom: 30px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .consejo:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    }
+
+    .consejo h3 {
+      margin-top: 0;
+      color: #111;
+      font-size: 22px;
+    }
+
+    .consejo p {
+      font-size: 16px;
+      color: #555;
+      line-height: 1.6;
+    }
+
+    .btn-modal {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 10px 20px;
+      background-color: #fcd000;
+      border: none;
+      font-weight: bold;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .btn-modal:hover {
+      background-color: #e5ba00;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.8);
+    }
+
+    .modal-content {
+      background-color: #fff;
+      margin: 10% auto;
+      padding: 30px;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 600px;
+      color: #000;
+    }
+
+    .close {
+      color: #333;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        display: none;
+        flex-direction: column;
+        background-color: #000;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 100%;
+        text-align: center;
+        padding: 20px 0;
+      }
+
+      nav a {
+        margin: 15px 0;
+      }
+
+      nav.active {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+    }
+  </style>
 </head>
 <body>
   <header>
     <div class="logo">⚡<span>MANOVOLT</span></div>
-    <nav>
+    <div class="menu-toggle" id="menu-toggle">
+      <i class="fas fa-bars"></i>
+    </div>
+    <nav id="nav-links">
       <a href="index.html">Inicio</a>
       <a href="formulario.html">Contacto</a>
       <a href="galeria.html">Galería</a>
     </nav>
   </header>
-  <!-- Sección de Consejos -->
+
   <section class="consejos fade-in" id="consejos">
     <h2>Consejos eléctricos útiles</h2>
 
-    <div class="consejo">
-      <h3>¿Qué hacer cuando salta el breaker o disyuntor?</h3>
-      <p>¿Se fue la luz en una parte de la casa y el breaker está abajo? Aquí te damos una guía paso a paso para revisarlo tú mismo y saber cuándo es momento de llamar a un experto.</p>
-      <button class="btn-modal" onclick="document.getElementById('modal1').style.display='block'">Ver más</button>
-    </div>
-
-    <div class="consejo">
-      <h3>Evita sobrecargas eléctricas en el hogar</h3>
-      <p>Conectar muchos aparatos en un solo enchufe puede generar sobrecalentamientos. Aquí te explicamos cómo prevenirlo.</p>
-      <button class="btn-modal" onclick="document.getElementById('modal2').style.display='block'">Ver más</button>
-    </div>
-
-    <div class="consejo">
-      <h3>¿Cómo detectar un tomacorriente dañado?</h3>
-      <p>Si una toma está caliente, chispea o tiene mal olor, puede estar dañada. Aprende a identificarlo a tiempo.</p>
-      <button class="btn-modal" onclick="document.getElementById('modal3').style.display='block'">Ver más</button>
-    </div>
-
-    <div class="consejo">
-      <h3>Tips para ahorrar energía eléctrica en casa</h3>
-      <p>Pequeños cambios pueden ayudarte a reducir tu factura. Aquí te damos algunos consejos prácticos.</p>
-      <button class="btn-modal" onclick="document.getElementById('modal4').style.display='block'">Ver más</button>
-    </div>
-
-    <div class="consejo">
-      <h3>¿Cuándo es necesario cambiar la instalación eléctrica?</h3>
-      <p>Una instalación vieja puede ser peligrosa. Conoce las señales que indican que necesitas renovarla.</p>
-      <button class="btn-modal" onclick="document.getElementById('modal5').style.display='block'">Ver más</button>
-    </div>
-  </section>
-
-  <!-- Modales -->
-  <div id="modal1" class="modal">
-    <div class="modal-content">
-      <span class="close" onclick="document.getElementById('modal1').style.display='none'">&times;</span>
-      <h3>Pasos para revisar el breaker:</h3>
-      <ul>
-        <li>Apaga todos los interruptores.</li>
-        <li>Revisa si hay algún aparato quemado o enchufado que causó el fallo.</li>
-        <li>Sube el breaker principal y luego los secundarios uno a uno.</li>
-        <li>Si vuelve a botarse, hay una sobrecarga o corto circuito. Llama a un electricista.</li>
-      </ul>
-    </div>
-  </div>
-
-  <div id="modal2" class="modal">
-    <div class="modal-content">
-      <span class="close" onclick="document.getElementById('modal2').style.display='none'">&times;</span>
-      <h3>Consejos para evitar sobrecargas:</h3>
-      <ul>
-        <li>No uses múltiples extensiones en una sola toma.</li>
-        <li>Evita conectar aparatos de alto consumo en el mismo enchufe.</li>
-        <li>Desconecta lo que no estés usando.</li>
-        <li>Considera instalar un protector de voltaje.</li>
-      </ul>
-    </div>
-  </div>
-
-  <div id="modal3" class="modal">
-    <div class="modal-content">
-      <span class="close" onclick="document.getElementById('modal3').style.display='none'">&times;</span>
-      <h3>Señales de tomacorriente en mal estado:</h3>
-      <ul>
-        <li>Chispeo al conectar o desconectar.</li>
-        <li>Olor a quemado en el área.</li>
-        <li>Coloración negra o derretida alrededor.</li>
-        <li>Falta de sujeción del enchufe.</li>
-      </ul>
-    </div>
-  </div>
-
-  <div id="modal4" class="modal">
-    <div class="modal-content">
-      <span class="close" onclick="document.getElementById('modal4').style.display='none'">&times;</span>
-      <h3>Formas de ahorrar energía:</h3>
-      <ul>
-        <li>Usa focos LED en lugar de incandescentes.</li>
-        <li>Desconecta cargadores y electrodomésticos no utilizados.</li>
-        <li>Utiliza electrodomésticos eficientes (clasificación A).</li>
-        <li>Aprovecha la luz natural durante el día.</li>
-      </ul>
-    </div>
-  </div>
-
-  <div id="modal5" class="modal">
-    <div class="modal-content">
-      <span class="close" onclick="document.getElementById('modal5').style.display='none'">&times;</span>
-      <h3>¿Cuándo renovar la instalación eléctrica?</h3>
-      <ul>
-        <li>Si la casa tiene más de 20 años sin cambios.</li>
-        <li>Cuando hay constantes bajones de voltaje.</li>
-        <li>Si los breakers se disparan seguido.</li>
-        <li>Presencia de cables expuestos o aislantes deteriorados.</li>
-      </ul>
-    </div>
-  </div>
-
-  <footer>
-    © 2025 MANOVOLT - Todos los derechos reservados
-  </footer>
-
-  <a href="https://wa.me/50374656746" target="_blank" class="boton-wsp" aria-label="Contactar por WhatsApp">
-    <i class="fab fa-whatsapp"></i>
-  </a>
-
-  <script>
-    const elements = document.querySelectorAll('.fade-in');
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('show');
-        }
-      });
-    });
-    elements.forEach(el => observer.observe(el));
-  </script>
-</body>
-</html>
+    <div class="
