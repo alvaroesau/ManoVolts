@@ -3,10 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Galería - MANOVOLT</title>
+  <title data-i18n="title">Galería - MANOVOLT</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-
   <style>
     body {
       margin: 0;
@@ -32,6 +31,11 @@
       color: #fcd000;
     }
 
+    nav {
+      display: flex;
+      align-items: center;
+    }
+
     nav a {
       margin-left: 20px;
       color: white;
@@ -44,11 +48,62 @@
       color: #fcd000;
     }
 
-    .language-selector {
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .menu-toggle span {
+      height: 3px;
+      width: 25px;
+      background: #fcd000;
+      margin: 4px 0;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+
+    .language-switcher {
       margin-left: 20px;
-      padding: 6px;
-      border-radius: 5px;
+      color: #fcd000;
+      font-weight: 600;
+    }
+
+    .language-switcher select {
+      background: #0c1e2c;
+      color: #fcd000;
       border: none;
+      font-size: 1rem;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+        background: #0c1e2c;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px 40px;
+        display: none;
+      }
+
+      nav.active {
+        display: flex;
+      }
+
+      nav a {
+        margin: 10px 0;
+      }
+
+      .menu-toggle {
+        display: flex;
+      }
+
+      .language-switcher {
+        margin-top: 10px;
+      }
     }
 
     h1 {
@@ -104,11 +159,15 @@
     }
 
     @media (min-width: 600px) {
-      .gallery { columns: 2; }
+      .gallery {
+        columns: 2;
+      }
     }
 
     @media (min-width: 900px) {
-      .gallery { columns: 3; }
+      .gallery {
+        columns: 3;
+      }
     }
 
     .lightbox {
@@ -183,78 +242,49 @@
 
 <header>
   <div class="logo">⚡<span>MANOVOLT</span></div>
-  <nav>
-    <a href="index.html" class="nav-item" data-key="home">Inicio</a>
-    <a href="formulario.html" class="nav-item" data-key="contact">Contacto</a>
-    <a href="consejos.html" class="nav-item" data-key="tips">Consejos</a>
+  <div class="menu-toggle" id="menu-toggle">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  <nav id="nav">
+    <a href="index.html" data-i18n="home">Inicio</a>
+    <a href="formulario.html" data-i18n="contact">Contacto</a>
+    <a href="consejos.html" data-i18n="tips">Consejos</a>
+    <div class="language-switcher">
+      <select id="lang-select">
+        <option value="es">Español</option>
+        <option value="en">English</option>
+        <option value="zh">中文</option>
+      </select>
+    </div>
   </nav>
-  <select class="language-selector" onchange="cambiarIdioma(this.value)">
-    <option value="es">🇪🇸 Español</option>
-    <option value="en">🇺🇸 English</option>
-    <option value="zh">🇨🇳 中文</option>
-  </select>
 </header>
 
-<h1 id="main-title">Galería de Proyectos</h1>
+<h1 data-i18n="gallery_title">Galería de Proyectos</h1>
 
 <main>
   <section class="gallery">
-    <!-- Los elementos deben mantenerse en el mismo orden que el arreglo de traducciones -->
     <div class="gallery-item">
-      <a href="#img1"><img src="proyecto1.jpg" alt=""></a>
-      <h3></h3>
-      <p></p>
+      <a href="#img1"><img src="proyecto1.jpg" alt="Imagen 1" /></a>
+      <h3 data-i18n="project1_title">Rotulación de Tableros</h3>
+      <p data-i18n="project1_desc">Tableros rotulados para un control más eficiente.</p>
     </div>
     <div class="gallery-item">
-      <a href="#img2"><img src="proyecto2.png" alt=""></a>
-      <h3></h3>
-      <p></p>
+      <a href="#img2"><img src="proyecto2.png" alt="Imagen 2" /></a>
+      <h3 data-i18n="project2_title">Instalación eléctrica comercial</h3>
+      <p data-i18n="project2_desc">Montajes seguros para negocios y oficinas.</p>
     </div>
-    <div class="gallery-item">
-      <a href="#img3"><img src="proyecto3.jpg" alt=""></a>
-      <h3></h3>
-      <p></p>
-    </div>
-    <div class="gallery-item">
-      <a href="#img4"><img src="proyecto4.jpg" alt=""></a>
-      <h3></h3>
-      <p></p>
-    </div>
-    <div class="gallery-item">
-      <a href="#img5"><img src="imagen01.jpg" alt=""></a>
-      <h3></h3>
-      <p></p>
-    </div>
-    <div class="gallery-item">
-      <a href="#img6"><img src="imagen02.jpg" alt=""></a>
-      <h3></h3>
-      <p></p>
-    </div>
-    <div class="gallery-item">
-      <a href="#img7"><img src="imagen03.jpg" alt=""></a>
-      <h3></h3>
-      <p></p>
-    </div>
-    <div class="gallery-item">
-      <a href="#img8"><img src="imagen04.jpg" alt=""></a>
-      <h3></h3>
-      <p></p>
-    </div>
+    <!-- Puedes añadir más elementos aquí -->
   </section>
 </main>
 
-<!-- Lightbox -->
-<div class="lightbox" id="img1"><img src="proyecto1.jpg" alt=""></div>
-<div class="lightbox" id="img2"><img src="proyecto2.png" alt=""></div>
-<div class="lightbox" id="img3"><img src="proyecto3.jpg" alt=""></div>
-<div class="lightbox" id="img4"><img src="proyecto4.jpg" alt=""></div>
-<div class="lightbox" id="img5"><img src="imagen01.jpg" alt=""></div>
-<div class="lightbox" id="img6"><img src="imagen02.jpg" alt=""></div>
-<div class="lightbox" id="img7"><img src="imagen03.jpg" alt=""></div>
-<div class="lightbox" id="img8"><img src="imagen04.jpg" alt=""></div>
+<!-- Lightboxes -->
+<div class="lightbox" id="img1"><img src="proyecto1.jpg" alt="Imagen ampliada 1"></div>
+<div class="lightbox" id="img2"><img src="proyecto2.png" alt="Imagen ampliada 2"></div>
 
 <footer>
-  © 2025 MANOVOLT - Todos los derechos reservados
+  © 2025 MANOVOLT - <span data-i18n="rights">Todos los derechos reservados</span>
   <div class="social-icons">
     <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
     <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
@@ -266,68 +296,63 @@
   <i class="fab fa-whatsapp"></i>
 </a>
 
+<!-- Script -->
 <script>
-  const traducciones = {
+  const translations = {
     es: {
-      titulo: "Galería de Proyectos",
-      nav: ["Inicio", "Contacto", "Consejos"],
-      cards: [
-        ["Rotulación de Tableros", "Tableros rotulados para un control más eficiente."],
-        ["Instalación eléctrica comercial", "Montajes seguros para negocios y oficinas."],
-        ["Mantenimiento y reparación eléctrica", "Soluciones preventivas y correctivas efectivas."],
-        ["Cableado residencial", "Instalaciones limpias y seguras para el hogar."],
-        ["Canalizado decorativo", "Estética funcional para ambientes modernos."],
-        ["Luminaria decorativa", "Ambientes cálidos con luz ambiental dirigida."],
-        ["Iluminación de paredes", "Luminarias adosadas que realzan texturas y diseño."],
-        ["Cielo falso con iluminación", "Instalación profesional de techos e iluminación."]
-      ]
+      title: "Galería - MANOVOLT",
+      home: "Inicio",
+      contact: "Contacto",
+      tips: "Consejos",
+      gallery_title: "Galería de Proyectos",
+      project1_title: "Rotulación de Tableros",
+      project1_desc: "Tableros rotulados para un control más eficiente.",
+      project2_title: "Instalación eléctrica comercial",
+      project2_desc: "Montajes seguros para negocios y oficinas.",
+      rights: "Todos los derechos reservados"
     },
     en: {
-      titulo: "Project Gallery",
-      nav: ["Home", "Contact", "Tips"],
-      cards: [
-        ["Panel Labeling", "Labeled panels for better control."],
-        ["Commercial Electrical Installation", "Safe setups for businesses and offices."],
-        ["Electrical Maintenance & Repair", "Effective preventive and corrective solutions."],
-        ["Residential Wiring", "Clean and safe home installations."],
-        ["Decorative Conduit", "Functional aesthetics for modern spaces."],
-        ["Decorative Lighting", "Warm environments with directed ambient light."],
-        ["Wall Lighting", "Wall-mounted lights enhancing texture and design."],
-        ["False Ceiling with Lighting", "Professional ceiling and lighting installation."]
-      ]
+      title: "Gallery - MANOVOLT",
+      home: "Home",
+      contact: "Contact",
+      tips: "Tips",
+      gallery_title: "Project Gallery",
+      project1_title: "Panel Labeling",
+      project1_desc: "Labeled panels for better control.",
+      project2_title: "Commercial Electrical Installation",
+      project2_desc: "Safe setups for businesses and offices.",
+      rights: "All rights reserved"
     },
     zh: {
-      titulo: "项目画廊",
-      nav: ["主页", "联系", "建议"],
-      cards: [
-        ["配电板标签", "为更高效的控制而标记的配电板。"],
-        ["商业电气安装", "为企业和办公室提供安全的安装。"],
-        ["电气维护与维修", "有效的预防和纠正解决方案。"],
-        ["住宅布线", "家庭的清洁安全安装。"],
-        ["装饰性管道", "现代空间的功能性美学。"],
-        ["装饰照明", "具有环境光的温馨环境。"],
-        ["墙壁照明", "增强墙面质感与设计的壁灯。"],
-        ["假天花板照明", "专业的天花板与照明安装。"]
-      ]
+      title: "画廊 - MANOVOLT",
+      home: "首页",
+      contact: "联系",
+      tips: "建议",
+      gallery_title: "项目画廊",
+      project1_title: "配电盘标签",
+      project1_desc: "用于高效控制的标记面板。",
+      project2_title: "商业电气安装",
+      project2_desc: "为企业和办公室提供安全的安装。",
+      rights: "版权所有"
     }
   };
 
-  function cambiarIdioma(lang) {
-    const t = traducciones[lang];
-    document.getElementById("main-title").textContent = t.titulo;
+  const toggle = document.getElementById("menu-toggle");
+  const nav = document.getElementById("nav");
+  toggle.addEventListener("click", () => {
+    nav.classList.toggle("active");
+  });
 
-    document.querySelectorAll(".nav-item").forEach((el, i) => {
-      el.textContent = t.nav[i];
+  const langSelect = document.getElementById("lang-select");
+  langSelect.addEventListener("change", (e) => {
+    const lang = e.target.value;
+    const elements = document.querySelectorAll("[data-i18n]");
+    elements.forEach(el => {
+      const key = el.getAttribute("data-i18n");
+      el.textContent = translations[lang][key] || el.textContent;
     });
-
-    document.querySelectorAll(".gallery-item").forEach((card, i) => {
-      card.querySelector("h3").textContent = t.cards[i][0];
-      card.querySelector("p").textContent = t.cards[i][1];
-    });
-  }
-
-  // Establece idioma por defecto
-  cambiarIdioma("es");
+    document.title = translations[lang]["title"];
+  });
 </script>
 
 </body>
