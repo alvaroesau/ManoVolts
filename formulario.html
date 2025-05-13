@@ -20,7 +20,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      flex-wrap: wrap;
+      position: relative;
     }
 
     .logo {
@@ -31,7 +31,6 @@
 
     nav {
       display: flex;
-      flex-wrap: wrap;
       gap: 15px;
     }
 
@@ -47,6 +46,13 @@
     nav a:hover {
       background-color: #fcd000;
       color: #000;
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 28px;
+      color: white;
+      cursor: pointer;
     }
 
     h2 {
@@ -126,6 +132,32 @@
     .modal-content button:hover {
       background-color: #e0b800;
     }
+
+    @media (max-width: 768px) {
+      nav {
+        display: none;
+        flex-direction: column;
+        background-color: #0c1e2c;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 100%;
+        padding: 20px 0;
+        text-align: center;
+      }
+
+      nav a {
+        padding: 12px 0;
+      }
+
+      nav.active {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+    }
   </style>
 </head>
 <body>
@@ -133,7 +165,10 @@
   <!-- Menú -->
   <header>
     <div class="logo">⚡<span>MANOVOLT</span></div>
-    <nav>
+    <div class="menu-toggle" id="menu-toggle">
+      <i class="fas fa-bars"></i>
+    </div>
+    <nav id="nav-links">
       <a href="index.html">Inicio</a>
       <a href="galeria.html">Galería</a>
       <a href="consejos.html">Consejos</a>
@@ -169,6 +204,7 @@
   </div>
 
   <script>
+    // Enviar formulario con AJAX
     document.getElementById('contact-form').addEventListener('submit', function (e) {
       e.preventDefault();
 
@@ -188,6 +224,21 @@
         }
       })
       .catch(() => alert('Error al conectar con el servidor.'));
+    });
+
+    // Menú hamburguesa
+    const toggle = document.getElementById('menu-toggle');
+    const nav = document.getElementById('nav-links');
+    toggle.addEventListener('click', () => {
+      nav.classList.toggle('active');
+    });
+
+    // Cierra el menú al hacer clic en un enlace (opcional, recomendado en móviles)
+    const links = document.querySelectorAll('#nav-links a');
+    links.forEach(link => {
+      link.addEventListener('click', () => {
+        nav.classList.remove('active');
+      });
     });
   </script>
 
