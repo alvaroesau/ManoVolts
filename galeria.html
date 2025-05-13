@@ -6,6 +6,7 @@
   <title>Galería - MANOVOLT</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
   <style>
     body {
       margin: 0;
@@ -41,6 +42,13 @@
 
     nav a:hover {
       color: #fcd000;
+    }
+
+    .language-selector {
+      margin-left: 20px;
+      padding: 6px;
+      border-radius: 5px;
+      border: none;
     }
 
     h1 {
@@ -95,20 +103,14 @@
       color: #555;
     }
 
-    /* Responsive grid */
     @media (min-width: 600px) {
-      .gallery {
-        columns: 2;
-      }
+      .gallery { columns: 2; }
     }
 
     @media (min-width: 900px) {
-      .gallery {
-        columns: 3;
-      }
+      .gallery { columns: 3; }
     }
 
-    /* Lightbox overlay */
     .lightbox {
       position: fixed;
       top: 0; left: 0;
@@ -153,7 +155,6 @@
       color: #fcd000;
     }
 
-    /* WhatsApp flotante */
     .whatsapp-float {
       position: fixed;
       bottom: 20px;
@@ -183,68 +184,74 @@
 <header>
   <div class="logo">⚡<span>MANOVOLT</span></div>
   <nav>
-    <a href="index.html">Inicio</a>
-    <a href="formulario.html">Contacto</a>   
-    <a href="consejos.html">Consejos</a>
+    <a href="index.html" class="nav-item" data-key="home">Inicio</a>
+    <a href="formulario.html" class="nav-item" data-key="contact">Contacto</a>
+    <a href="consejos.html" class="nav-item" data-key="tips">Consejos</a>
   </nav>
+  <select class="language-selector" onchange="cambiarIdioma(this.value)">
+    <option value="es">🇪🇸 Español</option>
+    <option value="en">🇺🇸 English</option>
+    <option value="zh">🇨🇳 中文</option>
+  </select>
 </header>
 
-<h1>Galería de Proyectos</h1>
+<h1 id="main-title">Galería de Proyectos</h1>
 
 <main>
   <section class="gallery">
+    <!-- Los elementos deben mantenerse en el mismo orden que el arreglo de traducciones -->
     <div class="gallery-item">
-      <a href="#img1"><img src="proyecto1.jpg" alt="Instalación de luminarias"></a>
-      <h3>Rotulación de Tableros</h3>
-      <p>Tableros rotulados para un control más eficiente.</p>
+      <a href="#img1"><img src="proyecto1.jpg" alt=""></a>
+      <h3></h3>
+      <p></p>
     </div>
     <div class="gallery-item">
-      <a href="#img2"><img src="proyecto2.png" alt="Instalación eléctrica comercial"></a>
-      <h3>Instalación eléctrica comercial</h3>
-      <p>Montajes seguros para negocios y oficinas.</p>
+      <a href="#img2"><img src="proyecto2.png" alt=""></a>
+      <h3></h3>
+      <p></p>
     </div>
     <div class="gallery-item">
-      <a href="#img3"><img src="proyecto3.jpg" alt="Mantenimiento eléctrico"></a>
-      <h3>Mantenimiento y reparación eléctrica</h3>
-      <p>Soluciones preventivas y correctivas efectivas.</p>
+      <a href="#img3"><img src="proyecto3.jpg" alt=""></a>
+      <h3></h3>
+      <p></p>
     </div>
     <div class="gallery-item">
-      <a href="#img4"><img src="proyecto4.jpg" alt="Cableado residencial"></a>
-      <h3>Cableado residencial</h3>
-      <p>Instalaciones limpias y seguras para el hogar.</p>
+      <a href="#img4"><img src="proyecto4.jpg" alt=""></a>
+      <h3></h3>
+      <p></p>
     </div>
     <div class="gallery-item">
-      <a href="#img5"><img src="imagen01.jpg" alt="Canalizado decorativo"></a>
-      <h3>Canalizado decorativo</h3>
-      <p>Estética funcional para ambientes modernos.</p>
+      <a href="#img5"><img src="imagen01.jpg" alt=""></a>
+      <h3></h3>
+      <p></p>
     </div>
     <div class="gallery-item">
-      <a href="#img6"><img src="imagen02.jpg" alt="Luminaria decorativa"></a>
-      <h3>Luminaria decorativa</h3>
-      <p>Ambientes cálidos con luz ambiental dirigida.</p>
+      <a href="#img6"><img src="imagen02.jpg" alt=""></a>
+      <h3></h3>
+      <p></p>
     </div>
     <div class="gallery-item">
-      <a href="#img7"><img src="imagen03.jpg" alt="Iluminación de paredes"></a>
-      <h3>Iluminación de paredes</h3>
-      <p>Luminarias adosadas que realzan texturas y diseño.</p>
+      <a href="#img7"><img src="imagen03.jpg" alt=""></a>
+      <h3></h3>
+      <p></p>
     </div>
     <div class="gallery-item">
-      <a href="#img8"><img src="imagen04.jpg" alt="Cielo falso con luminarias"></a>
-      <h3>Cielo falso con iluminación</h3>
-      <p>Instalación profesional de techos e iluminación.</p>
+      <a href="#img8"><img src="imagen04.jpg" alt=""></a>
+      <h3></h3>
+      <p></p>
     </div>
   </section>
 </main>
 
 <!-- Lightbox -->
-<div class="lightbox" id="img1"><img src="proyecto1.jpg" alt="Imagen ampliada"></div>
-<div class="lightbox" id="img2"><img src="proyecto2.png" alt="Imagen ampliada"></div>
-<div class="lightbox" id="img3"><img src="proyecto3.jpg" alt="Imagen ampliada"></div>
-<div class="lightbox" id="img4"><img src="proyecto4.jpg" alt="Imagen ampliada"></div>
-<div class="lightbox" id="img5"><img src="imagen01.jpg" alt="Imagen ampliada"></div>
-<div class="lightbox" id="img6"><img src="imagen02.jpg" alt="Imagen ampliada"></div>
-<div class="lightbox" id="img7"><img src="imagen03.jpg" alt="Imagen ampliada"></div>
-<div class="lightbox" id="img8"><img src="imagen04.jpg" alt="Imagen ampliada"></div>
+<div class="lightbox" id="img1"><img src="proyecto1.jpg" alt=""></div>
+<div class="lightbox" id="img2"><img src="proyecto2.png" alt=""></div>
+<div class="lightbox" id="img3"><img src="proyecto3.jpg" alt=""></div>
+<div class="lightbox" id="img4"><img src="proyecto4.jpg" alt=""></div>
+<div class="lightbox" id="img5"><img src="imagen01.jpg" alt=""></div>
+<div class="lightbox" id="img6"><img src="imagen02.jpg" alt=""></div>
+<div class="lightbox" id="img7"><img src="imagen03.jpg" alt=""></div>
+<div class="lightbox" id="img8"><img src="imagen04.jpg" alt=""></div>
 
 <footer>
   © 2025 MANOVOLT - Todos los derechos reservados
@@ -258,6 +265,70 @@
 <a href="https://wa.me/5211234567890" class="whatsapp-float" target="_blank" title="Contáctanos por WhatsApp">
   <i class="fab fa-whatsapp"></i>
 </a>
+
+<script>
+  const traducciones = {
+    es: {
+      titulo: "Galería de Proyectos",
+      nav: ["Inicio", "Contacto", "Consejos"],
+      cards: [
+        ["Rotulación de Tableros", "Tableros rotulados para un control más eficiente."],
+        ["Instalación eléctrica comercial", "Montajes seguros para negocios y oficinas."],
+        ["Mantenimiento y reparación eléctrica", "Soluciones preventivas y correctivas efectivas."],
+        ["Cableado residencial", "Instalaciones limpias y seguras para el hogar."],
+        ["Canalizado decorativo", "Estética funcional para ambientes modernos."],
+        ["Luminaria decorativa", "Ambientes cálidos con luz ambiental dirigida."],
+        ["Iluminación de paredes", "Luminarias adosadas que realzan texturas y diseño."],
+        ["Cielo falso con iluminación", "Instalación profesional de techos e iluminación."]
+      ]
+    },
+    en: {
+      titulo: "Project Gallery",
+      nav: ["Home", "Contact", "Tips"],
+      cards: [
+        ["Panel Labeling", "Labeled panels for better control."],
+        ["Commercial Electrical Installation", "Safe setups for businesses and offices."],
+        ["Electrical Maintenance & Repair", "Effective preventive and corrective solutions."],
+        ["Residential Wiring", "Clean and safe home installations."],
+        ["Decorative Conduit", "Functional aesthetics for modern spaces."],
+        ["Decorative Lighting", "Warm environments with directed ambient light."],
+        ["Wall Lighting", "Wall-mounted lights enhancing texture and design."],
+        ["False Ceiling with Lighting", "Professional ceiling and lighting installation."]
+      ]
+    },
+    zh: {
+      titulo: "项目画廊",
+      nav: ["主页", "联系", "建议"],
+      cards: [
+        ["配电板标签", "为更高效的控制而标记的配电板。"],
+        ["商业电气安装", "为企业和办公室提供安全的安装。"],
+        ["电气维护与维修", "有效的预防和纠正解决方案。"],
+        ["住宅布线", "家庭的清洁安全安装。"],
+        ["装饰性管道", "现代空间的功能性美学。"],
+        ["装饰照明", "具有环境光的温馨环境。"],
+        ["墙壁照明", "增强墙面质感与设计的壁灯。"],
+        ["假天花板照明", "专业的天花板与照明安装。"]
+      ]
+    }
+  };
+
+  function cambiarIdioma(lang) {
+    const t = traducciones[lang];
+    document.getElementById("main-title").textContent = t.titulo;
+
+    document.querySelectorAll(".nav-item").forEach((el, i) => {
+      el.textContent = t.nav[i];
+    });
+
+    document.querySelectorAll(".gallery-item").forEach((card, i) => {
+      card.querySelector("h3").textContent = t.cards[i][0];
+      card.querySelector("p").textContent = t.cards[i][1];
+    });
+  }
+
+  // Establece idioma por defecto
+  cambiarIdioma("es");
+</script>
 
 </body>
 </html>
