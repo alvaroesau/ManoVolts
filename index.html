@@ -12,7 +12,218 @@
       background: linear-gradient(135deg, #0c1e2c, #1a3a4d);
       color: #ffffff;
     }
-    /* ... (el resto del CSS se mantiene igual) ... */
+    
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      background-color: #1a2c3b;
+    }
+    
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+    
+    .logo img {
+      width: 50px;
+      height: 50px;
+      margin-right: 10px;
+    }
+    
+    .logo span {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+    
+    .menu-toggle {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    nav {
+      display: flex;
+      gap: 20px;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1rem;
+    }
+    
+    .language-switch button {
+      background-color: #fcd000;
+      color: #000;
+      border: none;
+      padding: 5px 10px;
+      margin-left: 10px;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .hero {
+      display: flex;
+      justify-content: space-between;
+      padding: 60px 20px;
+      background-color: #1a3a4d;
+      align-items: center;
+    }
+
+    .hero-text {
+      max-width: 500px;
+    }
+    
+    .hero-text h1 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+    
+    .hero-text p {
+      font-size: 1.2rem;
+      line-height: 1.6;
+    }
+    
+    .hero img {
+      max-width: 45%;
+      height: auto;
+    }
+    
+    .servicios, .testimonios, .ventajas, .contacto {
+      padding: 60px 40px;
+      text-align: center;
+    }
+    
+    .servicios h2, .testimonios h2, .ventajas h2 {
+      font-size: 2rem;
+      margin-bottom: 30px;
+    }
+
+    .servicios ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .servicios li {
+      font-size: 1.2rem;
+      margin-bottom: 15px;
+    }
+
+    .servicios li i {
+      margin-right: 10px;
+    }
+
+    .testimonios .contenedor-testimonios {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    .testimonios .testimonio {
+      max-width: 300px;
+      background-color: #1a2c3b;
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    .testimonios p {
+      font-size: 1rem;
+      margin-bottom: 10px;
+    }
+
+    .ventajas ul {
+      list-style: none;
+      padding: 0;
+      text-align: left;
+      margin: 0 auto;
+      max-width: 800px;
+    }
+
+    .ventajas li {
+      font-size: 1.2rem;
+      margin-bottom: 15px;
+    }
+
+    .ventajas li i {
+      margin-right: 10px;
+      color: #fcd000;
+    }
+
+    .contacto ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .contacto li {
+      font-size: 1.2rem;
+      margin-bottom: 15px;
+    }
+
+    .contacto a {
+      color: white;
+      text-decoration: none;
+    }
+
+    .boton-wsp {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25D366;
+      color: white;
+      padding: 15px;
+      border-radius: 50%;
+      font-size: 1.5rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #1a2c3b;
+      color: white;
+    }
+
+    footer span {
+      font-size: 1rem;
+    }
+
+    .fade-in {
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    .fade-in.show {
+      opacity: 1;
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .hero {
+        flex-direction: column;
+        text-align: center;
+      }
+      .hero img {
+        max-width: 80%;
+        margin-top: 20px;
+      }
+      nav {
+        display: none;
+      }
+      nav.show {
+        display: block;
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        background-color: #1a2c3b;
+        padding: 20px;
+        border-radius: 10px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -190,32 +401,35 @@
         "nav.galeria": "图库",
         "nav.consejos": "电气小贴士",
         "hero.title": "我们为您的家提供安全与信任",
-        "hero.desc": "在MANOVOLT，我们是一支有超过<strong>9年经验</strong>的电气工程师团队，提供<strong>安全、可靠且持久</strong>的电气解决方案。我们专注于住宅、商业和工业项目，提供专业和个性化的服务。",
+        "hero.desc": "在MANOVOLT，我们是一支有超过<strong>9年经验</strong>的电气工程师团队，提供<strong>安全、可靠、持久</strong>的电气解决方案。我们专注于住宅、商业和工业项目，提供专业和个性化的服务。",
         "servicios.title": "服务",
         "zona.trabajo": "工作区域：萨尔瓦多",
         "testimonios.title": "客户推荐",
-        "ventajas.title": "为什么选择我们？",
+        "ventajas.title": "为什么选择我们?",
         "ventaja1": "所有电气工作都提供保修",
-        "ventaja2": "为每个客户提供个性化服务",
-        "ventaja3": "对任何紧急情况提供快速有效的响应",
-        "ventaja4": "经验丰富的认证团队",
+        "ventaja2": "为每个客户和需求提供个性化服务",
+        "ventaja3": "针对任何紧急情况提供快速高效的响应",
+        "ventaja4": "经过认证的团队，拥有验证的经验",
         "contacto.title": "联系方式",
-        "contacto.text": "需要安装插座、灯具或进行完整的电气检查吗？我们还提供个性化的咨询和电气项目服务。我们随时为您提供帮助！",
-        "formulario.text": "填写联系表格",
+        "contacto.text": "需要安装插座、灯具或进行全面的电气检查吗？我们还提供个性化的咨询和电气项目服务。我们准备为您提供帮助！",
+        "formulario.text": "填写联系方式表单",
         "footer.copy": "© 2025 MANOVOLT - 版权所有"
       }
     };
 
+    // Function to set the language
     function setLanguage(lang) {
-      document.querySelectorAll('[data-i18n]').forEach(el => {
-        const key = el.getAttribute('data-i18n');
+      const elements = document.querySelectorAll('[data-i18n]');
+      elements.forEach(element => {
+        const key = element.getAttribute('data-i18n');
         if (translations[lang] && translations[lang][key]) {
-          el.innerHTML = translations[lang][key];
+          element.innerHTML = translations[lang][key];
         }
       });
     }
 
-    setLanguage('es');  // Cambia a 'es' por defecto o usa otro idioma
+    // Default language
+    setLanguage('es');
   </script>
 </body>
 </html>
