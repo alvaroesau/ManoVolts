@@ -12,161 +12,165 @@
       background: linear-gradient(135deg, #0c1e2c, #1a3a4d);
       color: #ffffff;
     }
-    
+
     header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 20px;
-      background-color: #1a2c3b;
+      padding: 20px 40px;
+      background-color: rgba(0, 0, 0, 0.7);
+      position: sticky;
+      top: 0;
+      z-index: 100;
     }
-    
+
     .logo {
       display: flex;
       align-items: center;
     }
-    
+
     .logo img {
-      width: 50px;
       height: 50px;
       margin-right: 10px;
     }
-    
+
     .logo span {
-      font-size: 1.5rem;
+      font-size: 1.7rem;
       font-weight: bold;
-    }
-    
-    .menu-toggle {
-      background: none;
-      border: none;
       color: white;
-      font-size: 1.5rem;
-      cursor: pointer;
     }
 
     nav {
       display: flex;
-      gap: 20px;
-    }
-
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      font-size: 1rem;
-    }
-    
-    .language-switch button {
-      background-color: #fcd000;
-      color: #000;
-      border: none;
-      padding: 5px 10px;
-      margin-left: 10px;
-      font-weight: bold;
-      cursor: pointer;
-      border-radius: 5px;
-    }
-
-    .hero {
-      display: flex;
-      justify-content: space-between;
-      padding: 60px 20px;
-      background-color: #1a3a4d;
       align-items: center;
     }
 
-    .hero-text {
-      max-width: 500px;
+    nav a {
+      margin-left: 20px;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
     }
-    
-    .hero-text h1 {
-      font-size: 2rem;
+
+    .menu-toggle {
+      display: none;
+      font-size: 24px;
+      color: white;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    .hero {
+      padding: 80px 40px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+
+    .hero-text {
+      flex: 1;
+      min-width: 300px;
+      margin-right: 20px;
+    }
+
+    .hero h1 {
+      font-size: 2.8rem;
       margin-bottom: 20px;
     }
-    
-    .hero-text p {
-      font-size: 1.2rem;
+
+    .hero p {
+      font-size: 1.3rem;
       line-height: 1.6;
     }
-    
+
     .hero img {
-      max-width: 45%;
+      max-width: 400px;
+      width: 100%;
       height: auto;
-    }
-    
-    .servicios, .testimonios, .ventajas, .contacto {
-      padding: 60px 40px;
-      text-align: center;
-    }
-    
-    .servicios h2, .testimonios h2, .ventajas h2 {
-      font-size: 2rem;
-      margin-bottom: 30px;
-    }
-
-    .servicios ul {
-      list-style: none;
-      padding: 0;
-    }
-
-    .servicios li {
-      font-size: 1.2rem;
-      margin-bottom: 15px;
-    }
-
-    .servicios li i {
-      margin-right: 10px;
-    }
-
-    .testimonios .contenedor-testimonios {
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-    }
-
-    .testimonios .testimonio {
-      max-width: 300px;
-      background-color: #1a2c3b;
-      padding: 20px;
       border-radius: 10px;
     }
 
-    .testimonios p {
-      font-size: 1rem;
+    .contacto p {
+      font-size: 1.3rem;
+      line-height: 1.6;
+    }
+
+    .servicios {
+      background-color: #f8f8f8;
+      color: #000;
+      padding: 60px 40px;
+    }
+
+    .servicios h2 {
+      color: #fcd000;
+      margin-bottom: 20px;
+    }
+
+    .servicios ul {
+      line-height: 2;
+      padding-left: 20px;
+    }
+
+    .servicios li {
       margin-bottom: 10px;
     }
 
-    .ventajas ul {
-      list-style: none;
-      padding: 0;
-      text-align: left;
-      margin: 0 auto;
-      max-width: 800px;
-    }
-
-    .ventajas li {
-      font-size: 1.2rem;
-      margin-bottom: 15px;
-    }
-
-    .ventajas li i {
+    .servicios i {
       margin-right: 10px;
       color: #fcd000;
     }
 
-    .contacto ul {
-      list-style: none;
-      padding: 0;
+    .zona {
+      margin-top: 20px;
+      font-weight: bold;
     }
 
-    .contacto li {
-      font-size: 1.2rem;
-      margin-bottom: 15px;
-    }
-
-    .contacto a {
+    .testimonios {
+      background-color: #112233;
+      padding: 60px 40px;
       color: white;
-      text-decoration: none;
+      text-align: center;
+    }
+
+    .testimonios h2 {
+      color: #fcd000;
+      margin-bottom: 40px;
+      font-size: 2rem;
+    }
+
+    .contenedor-testimonios {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .testimonio {
+      background-color: #1c2e40;
+      padding: 20px;
+      border-radius: 15px;
+      max-width: 300px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.4);
+    }
+
+    .testimonio p {
+      font-style: italic;
+      margin-bottom: 10px;
+    }
+
+    .testimonio h4 {
+      font-weight: normal;
+      color: #fcd000;
+    }
+
+    footer {
+      background-color: #0c1e2c;
+      text-align: center;
+      padding: 20px;
+      color: #ccc;
     }
 
     .boton-wsp {
@@ -175,53 +179,91 @@
       right: 20px;
       background-color: #25D366;
       color: white;
+      font-size: 24px;
       padding: 15px;
       border-radius: 50%;
-      font-size: 1.5rem;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    }
-
-    footer {
-      text-align: center;
-      padding: 20px;
-      background-color: #1a2c3b;
-      color: white;
-    }
-
-    footer span {
-      font-size: 1rem;
+      text-decoration: none;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+      z-index: 1000;
     }
 
     .fade-in {
       opacity: 0;
-      transition: opacity 1s ease-in-out;
+      transform: translateY(30px);
+      transition: opacity 1s ease-out, transform 1s ease-out;
     }
 
     .fade-in.show {
       opacity: 1;
+      transform: translateY(0);
     }
-    
-    /* Responsive Design */
-    @media (max-width: 768px) {
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 600px) {
+      header {
+        padding: 20px;
+      }
+
       .hero {
         flex-direction: column;
         text-align: center;
       }
+
+      .hero-text {
+        margin-right: 0;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+
       .hero img {
         max-width: 80%;
         margin-top: 20px;
       }
+
       nav {
         display: none;
-      }
-      nav.show {
-        display: block;
+        flex-direction: column;
+        align-items: flex-start;
+        background-color: rgba(0, 0, 0, 0.95);
         position: absolute;
-        top: 60px;
+        top: 70px;
         right: 20px;
-        background-color: #1a2c3b;
-        padding: 20px;
+        padding: 15px;
         border-radius: 10px;
+      }
+
+      nav.show {
+        display: flex;
+      }
+
+      nav a {
+        margin: 10px 0;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .servicios {
+        padding: 20px;
+      }
+
+      .servicios ul {
+        padding-left: 0;
+      }
+
+      .servicios li {
+        font-size: 1.1rem;
       }
     }
   </style>
@@ -236,31 +278,28 @@
       <i class="fas fa-bars"></i>
     </button>
     <nav id="nav">
-      <a href="#inicio" data-i18n="nav.inicio">Inicio</a>
-      <a href="#servicios" data-i18n="nav.servicios">Servicios</a>
-      <a href="#testimonios" data-i18n="nav.testimonios">Testimonios</a>
-      <a href="#contacto" data-i18n="nav.contacto">Contacto</a>
-      <a href="galeria.html" data-i18n="nav.galeria">Galería</a>
-      <a href="consejos.html" data-i18n="nav.consejos">Consejos Eléctricos</a>
+      <a href="#inicio">Inicio</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#testimonios">Testimonios</a>
+      <a href="#contacto">Contacto</a>
+      <a href="galeria.html">Galería</a>
+      <a href="consejos.html">Consejos Eléctricos</a>
     </nav>
-    <div class="language-switch">
-      <button onclick="setLanguage('es')">ES</button>
-      <button onclick="setLanguage('en')">EN</button>
-      <button onclick="setLanguage('zh')">ZH</button>
-    </div>
   </header>
 
   <main>
     <section class="hero fade-in" id="inicio">
       <div class="hero-text">
-        <h1 data-i18n="hero.title">Conectamos tu hogar con seguridad y confianza</h1>
-        <p data-i18n="hero.desc">En MANOVOLT somos un equipo de ingenieros electricistas con más de <strong>9 años de experiencia</strong> ofreciendo soluciones eléctricas <strong>seguras, confiables y duraderas</strong>. Nos especializamos en proyectos residenciales, comerciales e industriales con un enfoque profesional y personalizado.</p>
+        <h1>Conectamos tu hogar con seguridad y confianza</h1>
+        <p>
+          En MANOVOLT somos un equipo de ingenieros electricistas con más de <strong>9 años de experiencia</strong> ofreciendo soluciones eléctricas <strong>seguras, confiables y duraderas</strong>. Nos especializamos en proyectos residenciales, comerciales e industriales con un enfoque profesional y personalizado.
+        </p>
       </div>
       <img src="electricista.png" alt="Electricista" />
     </section>
 
     <section class="servicios fade-in" id="servicios">
-      <h2 data-i18n="servicios.title">Servicios</h2>
+      <h2>Servicios</h2>
       <ul>
         <li><i class="fas fa-lightbulb"></i> Instalación de lámparas, focos, tomacorrientes y apagadores</li>
         <li><i class="fas fa-tools"></i> Mantenimiento y corrección de fallas eléctricas</li>
@@ -271,11 +310,11 @@
         <li><i class="fas fa-comments"></i> Asesoría para nuevos proyectos</li>
         <li><i class="fas fa-comments"></i> Revisión de planos para OIA</li>
       </ul>
-      <div class="zona" data-i18n="zona.trabajo">Zonas de trabajo: El Salvador</div>
+      <div class="zona">Zonas de trabajo: El Salvador</div>
     </section>
 
     <section class="testimonios fade-in" id="testimonios">
-      <h2 data-i18n="testimonios.title">Testimonios de Clientes</h2>
+      <h2>Testimonios de Clientes</h2>
       <div class="contenedor-testimonios">
         <div class="testimonio">
           <p>"Muy profesional, me solucionó un corto en minutos. ¡Recomendado!"</p>
@@ -293,24 +332,24 @@
     </section>
 
     <section class="ventajas fade-in" id="ventajas" style="background-color: #1a2c3b; padding: 60px 40px; text-align: center;">
-      <h2 data-i18n="ventajas.title" style="color: #fcd000; font-size: 2rem; margin-bottom: 30px;">¿Por qué elegirnos?</h2>
+      <h2 style="color: #fcd000; font-size: 2rem; margin-bottom: 30px;">¿Por qué elegirnos?</h2>
       <ul style="list-style: none; padding: 0; max-width: 800px; margin: 0 auto; text-align: left;">
-        <li data-i18n="ventaja1" style="margin-bottom: 15px;"><i class="fas fa-shield-alt" style="color: #fcd000; margin-right: 10px;"></i><strong>Garantía en todos nuestros trabajos eléctricos</strong></li>
-        <li data-i18n="ventaja2" style="margin-bottom: 15px;"><i class="fas fa-user-check" style="color: #fcd000; margin-right: 10px;"></i><strong>Atención personalizada</strong> para cada cliente y necesidad</li>
-        <li data-i18n="ventaja3" style="margin-bottom: 15px;"><i class="fas fa-bolt" style="color: #fcd000; margin-right: 10px;"></i><strong>Respuesta rápida</strong> y eficiente ante cualquier urgencia</li>
-        <li data-i18n="ventaja4" style="margin-bottom: 15px;"><i class="fas fa-tools" style="color: #fcd000; margin-right: 10px;"></i><strong>Equipo certificado</strong> y con experiencia comprobada</li>
+        <li style="margin-bottom: 15px;"><i class="fas fa-shield-alt" style="color: #fcd000; margin-right: 10px;"></i><strong>Garantía en todos nuestros trabajos eléctricos</strong></li>
+        <li style="margin-bottom: 15px;"><i class="fas fa-user-check" style="color: #fcd000; margin-right: 10px;"></i><strong>Atención personalizada</strong> para cada cliente y necesidad</li>
+        <li style="margin-bottom: 15px;"><i class="fas fa-bolt" style="color: #fcd000; margin-right: 10px;"></i><strong>Respuesta rápida</strong> y eficiente ante cualquier urgencia</li>
+        <li style="margin-bottom: 15px;"><i class="fas fa-tools" style="color: #fcd000; margin-right: 10px;"></i><strong>Equipo certificado</strong> y con experiencia comprobada</li>
       </ul>
     </section>
 
     <section class="contacto fade-in" id="contacto">
-      <h3 data-i18n="contacto.title">Contacto</h3>
-      <p data-i18n="contacto.text">¿Necesitas instalar un tomacorriente, una luminaria o una revisión eléctrica completa? También realizamos asesorías y proyectos eléctricos personalizados. ¡Estamos listos para ayudarte!</p>
+      <h3>Contacto</h3>
+      <p>¿Necesitas instalar un tomacorriente, una luminaria o una revisión eléctrica completa? También realizamos asesorías y proyectos eléctricos personalizados. ¡Estamos listos para ayudarte!</p>
       <ul>
         <li><i class="fas fa-phone-alt"></i> <strong>Teléfono:</strong> <a href="tel:+50374646746" style="color: white;">7465-6746</a></li>
         <li><i class="fas fa-envelope"></i> <strong>Correo:</strong> <a href="mailto:manovols.electricidadsegura@hotmail.com" style="color: white;">manovols.electricidadsegura@hotmail.com</a></li>
       </ul>
       <p style="margin-top: 20px;">
-        <a href="formulario.html" data-i18n="formulario.text" style="background: #fcd000; color: #000; padding: 12px 20px; border-radius: 5px; font-weight: bold; text-decoration: none;">
+        <a href="formulario.html" style="background: #fcd000; color: #000; padding: 12px 20px; border-radius: 5px; font-weight: bold; text-decoration: none;">
           Llena el formulario de contacto
         </a>
       </p>
@@ -318,7 +357,7 @@
   </main>
 
   <footer>
-    <span data-i18n="footer.copy">© 2025 MANOVOLT - Todos los derechos reservados</span>
+    © 2025 MANOVOLT - Todos los derechos reservados
   </footer>
 
   <a href="https://wa.me/50374656746" target="_blank" class="boton-wsp" aria-label="Contactar por WhatsApp">
@@ -336,100 +375,20 @@
     });
     elements.forEach(el => observer.observe(el));
 
+    // Toggle menu responsive
     const toggleButton = document.getElementById('menu-toggle');
     const nav = document.getElementById('nav');
+
     toggleButton.addEventListener('click', () => {
       nav.classList.toggle('show');
     });
+
+    // Optional: close menu when clicking a link (mobile)
     nav.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
         nav.classList.remove('show');
       });
     });
-
-    // Multi-language support
-    const translations = {
-      es: {
-        "nav.inicio": "Inicio",
-        "nav.servicios": "Servicios",
-        "nav.testimonios": "Testimonios",
-        "nav.contacto": "Contacto",
-        "nav.galeria": "Galería",
-        "nav.consejos": "Consejos Eléctricos",
-        "hero.title": "Conectamos tu hogar con seguridad y confianza",
-        "hero.desc": "En MANOVOLT somos un equipo de ingenieros electricistas con más de <strong>9 años de experiencia</strong> ofreciendo soluciones eléctricas <strong>seguras, confiables y duraderas</strong>. Nos especializamos en proyectos residenciales, comerciales e industriales con un enfoque profesional y personalizado.",
-        "servicios.title": "Servicios",
-        "zona.trabajo": "Zonas de trabajo: El Salvador",
-        "testimonios.title": "Testimonios de Clientes",
-        "ventajas.title": "¿Por qué elegirnos?",
-        "ventaja1": "Garantía en todos nuestros trabajos eléctricos",
-        "ventaja2": "Atención personalizada para cada cliente y necesidad",
-        "ventaja3": "Respuesta rápida y eficiente ante cualquier urgencia",
-        "ventaja4": "Equipo certificado y con experiencia comprobada",
-        "contacto.title": "Contacto",
-        "contacto.text": "¿Necesitas instalar un tomacorriente, una luminaria o una revisión eléctrica completa? También realizamos asesorías y proyectos eléctricos personalizados. ¡Estamos listos para ayudarte!",
-        "formulario.text": "Llena el formulario de contacto",
-        "footer.copy": "© 2025 MANOVOLT - Todos los derechos reservados"
-      },
-      en: {
-        "nav.inicio": "Home",
-        "nav.servicios": "Services",
-        "nav.testimonios": "Testimonials",
-        "nav.contacto": "Contact",
-        "nav.galeria": "Gallery",
-        "nav.consejos": "Electrical Tips",
-        "hero.title": "We connect your home with safety and confidence",
-        "hero.desc": "At MANOVOLT, we are a team of electrical engineers with over <strong>9 years of experience</strong> providing <strong>safe, reliable, and long-lasting</strong> electrical solutions. We specialize in residential, commercial, and industrial projects with a professional and personalized approach.",
-        "servicios.title": "Services",
-        "zona.trabajo": "Work zones: El Salvador",
-        "testimonios.title": "Customer Testimonials",
-        "ventajas.title": "Why choose us?",
-        "ventaja1": "Warranty on all our electrical work",
-        "ventaja2": "Personalized attention for each client and need",
-        "ventaja3": "Fast and efficient response to any emergency",
-        "ventaja4": "Certified team with proven experience",
-        "contacto.title": "Contact",
-        "contacto.text": "Need to install an outlet, a light fixture, or a complete electrical inspection? We also provide personalized consulting and electrical project services. We are ready to help!",
-        "formulario.text": "Fill out the contact form",
-        "footer.copy": "© 2025 MANOVOLT - All rights reserved"
-      },
-      zh: {
-        "nav.inicio": "首页",
-        "nav.servicios": "服务",
-        "nav.testimonios": "客户推荐",
-        "nav.contacto": "联系方式",
-        "nav.galeria": "图库",
-        "nav.consejos": "电气小贴士",
-        "hero.title": "我们为您的家提供安全与信任",
-        "hero.desc": "在MANOVOLT，我们是一支有超过<strong>9年经验</strong>的电气工程师团队，提供<strong>安全、可靠、持久</strong>的电气解决方案。我们专注于住宅、商业和工业项目，提供专业和个性化的服务。",
-        "servicios.title": "服务",
-        "zona.trabajo": "工作区域：萨尔瓦多",
-        "testimonios.title": "客户推荐",
-        "ventajas.title": "为什么选择我们?",
-        "ventaja1": "所有电气工作都提供保修",
-        "ventaja2": "为每个客户和需求提供个性化服务",
-        "ventaja3": "针对任何紧急情况提供快速高效的响应",
-        "ventaja4": "经过认证的团队，拥有验证的经验",
-        "contacto.title": "联系方式",
-        "contacto.text": "需要安装插座、灯具或进行全面的电气检查吗？我们还提供个性化的咨询和电气项目服务。我们准备为您提供帮助！",
-        "formulario.text": "填写联系方式表单",
-        "footer.copy": "© 2025 MANOVOLT - 版权所有"
-      }
-    };
-
-    // Function to set the language
-    function setLanguage(lang) {
-      const elements = document.querySelectorAll('[data-i18n]');
-      elements.forEach(element => {
-        const key = element.getAttribute('data-i18n');
-        if (translations[lang] && translations[lang][key]) {
-          element.innerHTML = translations[lang][key];
-        }
-      });
-    }
-
-    // Default language
-    setLanguage('es');
   </script>
 </body>
 </html>
