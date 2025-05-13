@@ -95,14 +95,6 @@
       color: #555;
     }
 
-    footer {
-      background-color: #0c1e2c;
-      text-align: center;
-      padding: 20px;
-      color: #ccc;
-      margin-top: 60px;
-    }
-
     /* Responsive grid */
     @media (min-width: 600px) {
       .gallery {
@@ -137,6 +129,53 @@
     .lightbox:target {
       display: flex;
     }
+
+    footer {
+      background-color: #0c1e2c;
+      text-align: center;
+      padding: 20px;
+      color: #ccc;
+      position: relative;
+    }
+
+    .social-icons {
+      margin-top: 10px;
+    }
+
+    .social-icons a {
+      margin: 0 10px;
+      color: #ccc;
+      transition: color 0.3s;
+      font-size: 1.2rem;
+    }
+
+    .social-icons a:hover {
+      color: #fcd000;
+    }
+
+    /* WhatsApp flotante */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25d366;
+      color: #fff;
+      border-radius: 50%;
+      width: 55px;
+      height: 55px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+      z-index: 999;
+      text-decoration: none;
+      transition: transform 0.3s ease;
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.1);
+    }
   </style>
 </head>
 <body>
@@ -154,11 +193,10 @@
 
 <main>
   <section class="gallery">
-    <!-- Reemplaza las rutas por tus imágenes -->
     <div class="gallery-item">
       <a href="#img1"><img src="proyecto1.jpg" alt="Instalación de luminarias"></a>
-      <h3>Rotulacion de Tableros</h3>
-      <p>Tableros rotulados para un control mas eficiente.</p>
+      <h3>Rotulación de Tableros</h3>
+      <p>Tableros rotulados para un control más eficiente.</p>
     </div>
     <div class="gallery-item">
       <a href="#img2"><img src="proyecto2.png" alt="Instalación eléctrica comercial"></a>
@@ -176,17 +214,17 @@
       <p>Instalaciones limpias y seguras para el hogar.</p>
     </div>
     <div class="gallery-item">
-      <a href="#img5"><img src="imagen01.jpg" alt="Canalizado e instalación de luminarias"></a>
+      <a href="#img5"><img src="imagen01.jpg" alt="Canalizado decorativo"></a>
       <h3>Canalizado decorativo</h3>
       <p>Estética funcional para ambientes modernos.</p>
     </div>
     <div class="gallery-item">
-      <a href="#img6"><img src="imagen02.jpg" alt="Luminaria en restaurante"></a>
+      <a href="#img6"><img src="imagen02.jpg" alt="Luminaria decorativa"></a>
       <h3>Luminaria decorativa</h3>
       <p>Ambientes cálidos con luz ambiental dirigida.</p>
     </div>
     <div class="gallery-item">
-      <a href="#img7"><img src="imagen03.jpg" alt="Pared iluminada"></a>
+      <a href="#img7"><img src="imagen03.jpg" alt="Iluminación de paredes"></a>
       <h3>Iluminación de paredes</h3>
       <p>Luminarias adosadas que realzan texturas y diseño.</p>
     </div>
@@ -198,7 +236,7 @@
   </section>
 </main>
 
-<!-- Lightbox (solo uno reutilizable) -->
+<!-- Lightbox -->
 <div class="lightbox" id="img1"><img src="proyecto1.jpg" alt="Imagen ampliada"></div>
 <div class="lightbox" id="img2"><img src="proyecto2.png" alt="Imagen ampliada"></div>
 <div class="lightbox" id="img3"><img src="proyecto3.jpg" alt="Imagen ampliada"></div>
@@ -210,7 +248,16 @@
 
 <footer>
   © 2025 MANOVOLT - Todos los derechos reservados
+  <div class="social-icons">
+    <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+    <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="mailto:manovolt@ejemplo.com"><i class="fas fa-envelope"></i></a>
+  </div>
 </footer>
+
+<a href="https://wa.me/5211234567890" class="whatsapp-float" target="_blank" title="Contáctanos por WhatsApp">
+  <i class="fab fa-whatsapp"></i>
+</a>
 
 </body>
 </html>
