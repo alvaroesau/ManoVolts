@@ -5,11 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Galería - MANOVOLT</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #f2f2f2;
+      font-family: 'Poppins', sans-serif;
+      background-color: #f9f9f9;
       color: #333;
     }
 
@@ -18,15 +19,13 @@
       justify-content: space-between;
       align-items: center;
       padding: 20px 40px;
-      background-color: rgba(0, 0, 0, 0.7);
+      background-color: #0c1e2c;
       position: sticky;
       top: 0;
       z-index: 100;
     }
 
     .logo {
-      display: flex;
-      align-items: center;
       font-size: 1.7rem;
       font-weight: bold;
       color: #fcd000;
@@ -36,45 +35,63 @@
       margin-left: 20px;
       color: white;
       text-decoration: none;
-      font-weight: bold;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #fcd000;
+    }
+
+    h1 {
+      text-align: center;
+      margin-top: 40px;
+      color: #0c1e2c;
     }
 
     .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 20px;
-      padding: 40px;
-      margin-top: 40px;
+      columns: 1;
+      column-gap: 20px;
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 20px;
     }
 
     .gallery-item {
-      text-align: center;
-      background-color: white;
+      break-inside: avoid;
+      margin-bottom: 20px;
+      background: white;
       border-radius: 10px;
       overflow: hidden;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s;
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-5px);
     }
 
     .gallery-item img {
       width: 100%;
-      height: auto;
-      transition: transform 0.3s ease-in-out;
+      display: block;
+      transition: transform 0.3s;
+      cursor: pointer;
     }
 
     .gallery-item img:hover {
-      transform: scale(1.05);
+      transform: scale(1.02);
     }
 
     .gallery-item h3 {
-      padding: 10px;
-      background-color: #fcd000;
-      color: white;
       margin: 0;
+      padding: 12px 16px 0;
+      font-size: 1.1rem;
+      color: #0c1e2c;
     }
 
     .gallery-item p {
-      padding: 10px;
-      font-size: 1rem;
+      padding: 0 16px 16px;
+      font-size: 0.95rem;
       color: #555;
     }
 
@@ -83,12 +100,42 @@
       text-align: center;
       padding: 20px;
       color: #ccc;
+      margin-top: 60px;
     }
 
-    @media (max-width: 600px) {
+    /* Responsive grid */
+    @media (min-width: 600px) {
       .gallery {
-        padding: 20px;
+        columns: 2;
       }
+    }
+
+    @media (min-width: 900px) {
+      .gallery {
+        columns: 3;
+      }
+    }
+
+    /* Lightbox overlay */
+    .lightbox {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.85);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+    }
+
+    .lightbox img {
+      max-width: 90%;
+      max-height: 80vh;
+      border-radius: 10px;
+    }
+
+    .lightbox:target {
+      display: flex;
     }
   </style>
 </head>
@@ -103,53 +150,63 @@
   </nav>
 </header>
 
+<h1>Galería de Proyectos</h1>
+
 <main>
   <section class="gallery">
+    <!-- Reemplaza las rutas por tus imágenes -->
     <div class="gallery-item">
-      <img src="proyecto1.jpg" alt="Instalación de luminarias">
+      <a href="#img1"><img src="proyecto1.jpg" alt="Instalación de luminarias"></a>
       <h3>Instalación de luminarias</h3>
-      <p>Instalación profesional de luminarias en espacios residenciales y comerciales para mejorar la iluminación.</p>
+      <p>Iluminación eficiente para hogares y comercios.</p>
     </div>
-
     <div class="gallery-item">
-      <img src="proyecto2.png" alt="Instalación eléctrica comercial">
+      <a href="#img2"><img src="proyecto2.png" alt="Instalación eléctrica comercial"></a>
       <h3>Instalación eléctrica comercial</h3>
-      <p>Proyecto eléctrico en instalaciones comerciales, garantizando seguridad y eficiencia energética.</p>
+      <p>Montajes seguros para negocios y oficinas.</p>
     </div>
-
     <div class="gallery-item">
-      <img src="proyecto3.jpg" alt="Mantenimiento y reparación eléctrica">
+      <a href="#img3"><img src="proyecto3.jpg" alt="Mantenimiento eléctrico"></a>
       <h3>Mantenimiento y reparación eléctrica</h3>
-      <p>Reparación y mantenimiento preventivo para evitar fallas y garantizar el buen funcionamiento eléctrico.</p>
+      <p>Soluciones preventivas y correctivas efectivas.</p>
     </div>
-
     <div class="gallery-item">
-      <img src="proyecto4.jpg" alt="Cableado residencial">
+      <a href="#img4"><img src="proyecto4.jpg" alt="Cableado residencial"></a>
       <h3>Cableado residencial</h3>
-      <p>Instalación de cableado eléctrico residencial, asegurando una distribución segura y eficiente de energía.</p>
+      <p>Instalaciones limpias y seguras para el hogar.</p>
     </div>
     <div class="gallery-item">
-      <img src="imagen01.jpg" alt="Cableado residencial">
-      <h3>Canalizado e instalacion de Luminaria</h3>
-      <p>Canalizado e instalacion de luminaria decorativa</p>
+      <a href="#img5"><img src="imagen01.jpg" alt="Canalizado e instalación de luminarias"></a>
+      <h3>Canalizado decorativo</h3>
+      <p>Estética funcional para ambientes modernos.</p>
     </div>
     <div class="gallery-item">
-      <img src="imagen02.jpg" alt="Cableado residencial">
-      <h3>Instalacion de Luminaria Decorativa</h3>
-      <p>Instalación de Luminaria Decorativa, dando un realse al espacio de un restaurante.</p>
+      <a href="#img6"><img src="imagen02.jpg" alt="Luminaria en restaurante"></a>
+      <h3>Luminaria decorativa</h3>
+      <p>Ambientes cálidos con luz ambiental dirigida.</p>
     </div>
     <div class="gallery-item">
-      <img src="imagen03.jpg" alt="Cableado residencial">
-      <h3>Luminarias Adosada a Pared decorativa</h3>
-      <p>Luminaria para dar un realse a la pared, Decorativa.</p>
+      <a href="#img7"><img src="imagen03.jpg" alt="Pared iluminada"></a>
+      <h3>Iluminación de paredes</h3>
+      <p>Luminarias adosadas que realzan texturas y diseño.</p>
     </div>
     <div class="gallery-item">
-      <img src="imagen04.jpg" alt="Cableado residencial">
-      <h3>Intalacion Completa de cielo Falso</h3>
-      <p>Instalacion de luminarias en cielo falso, Cantidad y calidad de instalacion.</p>
+      <a href="#img8"><img src="imagen04.jpg" alt="Cielo falso con luminarias"></a>
+      <h3>Cielo falso con iluminación</h3>
+      <p>Instalación profesional de techos e iluminación.</p>
     </div>
   </section>
 </main>
+
+<!-- Lightbox (solo uno reutilizable) -->
+<div class="lightbox" id="img1"><img src="proyecto1.jpg" alt="Imagen ampliada"></div>
+<div class="lightbox" id="img2"><img src="proyecto2.png" alt="Imagen ampliada"></div>
+<div class="lightbox" id="img3"><img src="proyecto3.jpg" alt="Imagen ampliada"></div>
+<div class="lightbox" id="img4"><img src="proyecto4.jpg" alt="Imagen ampliada"></div>
+<div class="lightbox" id="img5"><img src="imagen01.jpg" alt="Imagen ampliada"></div>
+<div class="lightbox" id="img6"><img src="imagen02.jpg" alt="Imagen ampliada"></div>
+<div class="lightbox" id="img7"><img src="imagen03.jpg" alt="Imagen ampliada"></div>
+<div class="lightbox" id="img8"><img src="imagen04.jpg" alt="Imagen ampliada"></div>
 
 <footer>
   © 2025 MANOVOLT - Todos los derechos reservados
