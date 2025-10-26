@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
@@ -6,121 +6,265 @@
   <title>MANOVOLT - Servicios Eléctricos</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <style>
-    /* ==== RESET Y TIPOGRAFÍA ==== */
-    * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
+      margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background: linear-gradient(135deg, #0c1e2c, #1a3a4d);
-      color: #fff;
-      scroll-behavior: smooth;
+      color: #ffffff;
     }
 
-    a { text-decoration: none; }
-
-    /* ==== HEADER ==== */
     header {
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 20px 40px;
-      background-color: rgba(0,0,0,0.7);
+      background-color: rgba(0, 0, 0, 0.7);
       position: sticky;
       top: 0;
       z-index: 100;
     }
-    .logo { display: flex; align-items: center; }
-    .logo img { height: 50px; margin-right: 10px; }
-    .logo span { font-size: 1.7rem; font-weight: bold; color: #fcd000; }
-    nav { display: flex; align-items: center; gap: 20px; }
-    nav a { color: #fff; font-weight: bold; transition: 0.3s; }
-    nav a:hover { color: #fcd000; }
+
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo img {
+      height: 50px;
+      margin-right: 10px;
+    }
+
+    .logo span {
+      font-size: 1.7rem;
+      font-weight: bold;
+      color: white;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+    }
+
+    nav a {
+      margin-left: 20px;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
 
     .menu-toggle {
       display: none;
-      font-size: 28px;
+      font-size: 24px;
       color: white;
       background: none;
       border: none;
       cursor: pointer;
     }
 
-    /* ==== HERO ==== */
     .hero {
+      padding: 80px 40px;
       display: flex;
       flex-wrap: wrap;
-      align-items: center;
       justify-content: space-between;
-      padding: 80px 40px;
+      align-items: center;
       animation: fadeIn 1.5s ease-in-out;
     }
-    .hero-text { flex:1; min-width: 300px; margin-right: 20px; }
-    .hero h1 { font-size: 2.8rem; margin-bottom: 20px; color: #fcd000; }
-    .hero p { font-size: 1.3rem; line-height: 1.6; }
-    .hero img { max-width: 400px; width: 100%; border-radius: 10px; }
 
-    /* ==== SECCIONES ==== */
-    section { padding: 60px 40px; }
+    .hero-text {
+      flex: 1;
+      min-width: 300px;
+      margin-right: 20px;
+    }
 
-    .servicios { background-color: #f8f8f8; color: #000; border-radius: 15px; }
-    .servicios h2 { color: #fcd000; margin-bottom: 25px; text-align:center; }
-    .servicios ul { list-style:none; line-height:2; padding-left:0; display:grid; grid-template-columns: repeat(auto-fit,minmax(250px,1fr)); gap:15px; }
-    .servicios li { background:#112233; padding:12px 15px; border-radius:10px; display:flex; align-items:center; transition:0.3s; }
-    .servicios li i { margin-right:10px; color:#fcd000; }
-    .servicios li:hover { background:#1c2e40; }
+    .hero h1 {
+      font-size: 2.8rem;
+      margin-bottom: 20px;
+    }
 
-    .zona { margin-top:20px; font-weight:bold; text-align:center; }
+    .hero p {
+      font-size: 1.3rem;
+      line-height: 1.6;
+    }
 
-    .ventajas { background-color:#1a2c3b; text-align:center; border-radius:15px; }
-    .ventajas h2 { color:#fcd000; margin-bottom:30px; font-size:2rem; }
-    .ventajas ul { list-style:none; padding:0; max-width:800px; margin:0 auto; text-align:left; }
-    .ventajas li { margin-bottom:15px; display:flex; align-items:center; font-size:1.1rem; }
-    .ventajas li i { color:#fcd000; margin-right:10px; }
+    .hero img {
+      max-width: 400px;
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+    }
 
-    .testimonios { background-color: #112233; text-align:center; border-radius:15px; }
-    .testimonios h2 { color: #fcd000; margin-bottom: 40px; font-size: 2rem; }
-    .contenedor-testimonios { display:flex; flex-wrap:wrap; gap:20px; justify-content:center; }
-    .testimonio { background:#1c2e40; padding:20px; border-radius:15px; max-width:300px; box-shadow:0 0 10px rgba(0,0,0,0.4); transition:0.3s; }
-    .testimonio:hover { transform: translateY(-5px); }
-    .testimonio p { font-style:italic; margin-bottom:10px; }
-    .testimonio h4 { font-weight:normal; color:#fcd000; }
+    .contacto p {
+      font-size: 1.3rem;
+      line-height: 1.6;
+    }
 
-    /* ==== FORMULARIO ==== */
-    .formulario { background:#f8f8f8; color:#000; border-radius:15px; max-width:600px; margin:0 auto; padding:40px; }
-    .formulario h3 { color:#fcd000; margin-bottom:20px; text-align:center; }
-    .formulario input, .formulario textarea { width:100%; padding:12px; margin-bottom:15px; border-radius:8px; border:1px solid #ccc; }
-    .formulario button { background:#fcd000; color:#000; font-weight:bold; padding:12px 20px; border:none; border-radius:8px; cursor:pointer; transition:0.3s; }
-    .formulario button:hover { background:#e0b800; }
+    .servicios {
+      background-color: #f8f8f8;
+      color: #000;
+      padding: 60px 40px;
+    }
 
-    .contacto { text-align:center; }
-    .contacto p { margin-bottom:15px; font-size:1.2rem; }
-    .contacto ul { list-style:none; padding:0; }
-    .contacto li { margin-bottom:10px; }
-    .contacto li i { margin-right:10px; }
+    .servicios h2 {
+      color: #fcd000;
+      margin-bottom: 20px;
+    }
 
-    footer { background:#0c1e2c; text-align:center; padding:20px; color:#ccc; border-radius:10px; }
+    .servicios ul {
+      line-height: 2;
+      padding-left: 20px;
+    }
 
-    /* ==== BOTON WHATSAPP ==== */
-    .boton-wsp { position:fixed; bottom:20px; right:20px; background-color:#25D366; color:white; font-size:28px; padding:15px; border-radius:50%; text-align:center; box-shadow:0 4px 6px rgba(0,0,0,0.3); z-index:1000; }
+    .servicios li {
+      margin-bottom: 10px;
+    }
 
-    /* ==== ANIMACIONES ==== */
-    .fade-in { opacity:0; transform: translateY(30px); transition: opacity 1s ease-out, transform 1s ease-out; }
-    .fade-in.show { opacity:1; transform: translateY(0); }
-    @keyframes fadeIn { from {opacity:0; transform:translateY(30px);} to{opacity:1; transform:translateY(0);} }
+    .servicios i {
+      margin-right: 10px;
+      color: #fcd000;
+    }
 
-    /* ==== RESPONSIVE ==== */
-    @media(max-width:768px){
-      .hero { flex-direction:column; text-align:center; }
-      .hero-text { margin-right:0; }
-      .hero h1 { font-size:2rem; }
-      .hero p { font-size:1rem; }
-      .hero img { max-width:80%; margin-top:20px; }
+    .zona {
+      margin-top: 20px;
+      font-weight: bold;
+    }
 
-      nav { display:none; flex-direction:column; position:absolute; top:70px; right:20px; background:rgba(0,0,0,0.95); padding:15px; border-radius:10px; }
-      nav.show { display:flex; }
-      nav a { margin:10px 0; }
+    .testimonios {
+      background-color: #112233;
+      padding: 60px 40px;
+      color: white;
+      text-align: center;
+    }
 
-      .menu-toggle { display:block; }
-      .servicios { padding:20px; }
+    .testimonios h2 {
+      color: #fcd000;
+      margin-bottom: 40px;
+      font-size: 2rem;
+    }
+
+    .contenedor-testimonios {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .testimonio {
+      background-color: #1c2e40;
+      padding: 20px;
+      border-radius: 15px;
+      max-width: 300px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.4);
+    }
+
+    .testimonio p {
+      font-style: italic;
+      margin-bottom: 10px;
+    }
+
+    .testimonio h4 {
+      font-weight: normal;
+      color: #fcd000;
+    }
+
+    footer {
+      background-color: #0c1e2c;
+      text-align: center;
+      padding: 20px;
+      color: #ccc;
+    }
+
+    .boton-wsp {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25D366;
+      color: white;
+      font-size: 24px;
+      padding: 15px;
+      border-radius: 50%;
+      text-decoration: none;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+      z-index: 1000;
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 1s ease-out, transform 1s ease-out;
+    }
+
+    .fade-in.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 600px) {
+      header {
+        padding: 20px;
+      }
+
+      .hero {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .hero-text {
+        margin-right: 0;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+
+      .hero img {
+        max-width: 80%;
+        margin-top: 20px;
+      }
+
+      nav {
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        background-color: rgba(0, 0, 0, 0.95);
+        position: absolute;
+        top: 70px;
+        right: 20px;
+        padding: 15px;
+        border-radius: 10px;
+      }
+
+      nav.show {
+        display: flex;
+      }
+
+      nav a {
+        margin: 10px 0;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .servicios {
+        padding: 20px;
+      }
+
+      .servicios ul {
+        padding-left: 0;
+      }
+
+      .servicios li {
+        font-size: 1.1rem;
+      }
     }
   </style>
 </head>
@@ -130,12 +274,12 @@
       <img src="logo-manovolt.jpeg" alt="Logo MANOVOLT">
       <span>MANOVOLT</span>
     </div>
-    <button class="menu-toggle" id="menu-toggle"><i class="fas fa-bars"></i></button>
+    <button class="menu-toggle" id="menu-toggle">
+      <i class="fas fa-bars"></i>
+    </button>
     <nav id="nav">
       <a href="#inicio">Inicio</a>
       <a href="#servicios">Servicios</a>
-      <a href="#ventajas">Por qué elegirnos</a>
-      <a href="#planes">Planes</a>
       <a href="#testimonios">Testimonios</a>
       <a href="#contacto">Contacto</a>
       <a href="galeria.html">Galería</a>
@@ -144,56 +288,31 @@
   </header>
 
   <main>
-    <!-- HERO -->
     <section class="hero fade-in" id="inicio">
       <div class="hero-text">
         <h1>Conectamos tu hogar con seguridad y confianza</h1>
-        <p>En MANOVOLT somos un equipo de ingenieros electricistas con más de <strong>9 años de experiencia</strong> ofreciendo soluciones eléctricas <strong>seguras, confiables y duraderas</strong>.</p>
+        <p>
+          En MANOVOLT somos un equipo de ingenieros electricistas con más de <strong>9 años de experiencia</strong> ofreciendo soluciones eléctricas <strong>seguras, confiables y duraderas</strong>. Nos especializamos en proyectos residenciales, comerciales e industriales con un enfoque profesional y personalizado.
+        </p>
       </div>
       <img src="electricista.png" alt="Electricista" />
     </section>
 
-    <!-- SERVICIOS -->
     <section class="servicios fade-in" id="servicios">
       <h2>Servicios</h2>
       <ul>
         <li><i class="fas fa-lightbulb"></i> Instalación de lámparas, focos, tomacorrientes y apagadores</li>
         <li><i class="fas fa-tools"></i> Mantenimiento y corrección de fallas eléctricas</li>
         <li><i class="fas fa-bolt"></i> Instalación de tableros y protecciones</li>
-        <li><i class="fas fa-pencil-alt"></i> Diseño de planos eléctricos</li>
+        <li><i class="fas fa-bolt"></i> Diseño de planos Eléctricos</li>
         <li><i class="fas fa-house"></i> Cableado residencial y comercial</li>
         <li><i class="fas fa-exclamation-triangle"></i> Revisión de cortocircuitos y sobrecargas</li>
         <li><i class="fas fa-comments"></i> Asesoría para nuevos proyectos</li>
-        <li><i class="fas fa-check-square"></i> Revisión de planos para OIA</li>
+        <li><i class="fas fa-comments"></i> Revisión de planos para OIA</li>
       </ul>
       <div class="zona">Zonas de trabajo: El Salvador</div>
     </section>
 
-    <!-- POR QUE ELEGIRNOS -->
-    <section class="ventajas fade-in" id="ventajas">
-      <h2>¿Por qué elegirnos?</h2>
-      <ul>
-        <li><i class="fas fa-shield-alt"></i> Garantía en todos nuestros trabajos eléctricos</li>
-        <li><i class="fas fa-user-check"></i> Atención personalizada para cada cliente</li>
-        <li><i class="fas fa-bolt"></i> Respuesta rápida ante cualquier urgencia</li>
-        <li><i class="fas fa-tools"></i> Equipo certificado y con experiencia comprobada</li>
-      </ul>
-    </section>
-
-    <!-- PLANES / COTIZACION -->
-    <section class="formulario fade-in" id="planes">
-      <h3>Solicita tu cotización express</h3>
-      <p>Rellena el formulario y nos pondremos en contacto contigo en breve.</p>
-      <form action="https://wa.me/50374656746" target="_blank">
-        <input type="text" name="nombre" placeholder="Nombre completo" required>
-        <input type="tel" name="telefono" placeholder="Número de teléfono" required>
-        <input type="text" name="servicio" placeholder="Servicio requerido" required>
-        <textarea name="mensaje" placeholder="Detalles adicionales" rows="4"></textarea>
-        <button type="submit">Enviar por WhatsApp</button>
-      </form>
-    </section>
-
-    <!-- TESTIMONIOS -->
     <section class="testimonios fade-in" id="testimonios">
       <h2>Testimonios de Clientes</h2>
       <div class="contenedor-testimonios">
@@ -212,14 +331,28 @@
       </div>
     </section>
 
-    <!-- CONTACTO -->
+    <section class="ventajas fade-in" id="ventajas" style="background-color: #1a2c3b; padding: 60px 40px; text-align: center;">
+      <h2 style="color: #fcd000; font-size: 2rem; margin-bottom: 30px;">¿Por qué elegirnos?</h2>
+      <ul style="list-style: none; padding: 0; max-width: 800px; margin: 0 auto; text-align: left;">
+        <li style="margin-bottom: 15px;"><i class="fas fa-shield-alt" style="color: #fcd000; margin-right: 10px;"></i><strong>Garantía en todos nuestros trabajos eléctricos</strong></li>
+        <li style="margin-bottom: 15px;"><i class="fas fa-user-check" style="color: #fcd000; margin-right: 10px;"></i><strong>Atención personalizada</strong> para cada cliente y necesidad</li>
+        <li style="margin-bottom: 15px;"><i class="fas fa-bolt" style="color: #fcd000; margin-right: 10px;"></i><strong>Respuesta rápida</strong> y eficiente ante cualquier urgencia</li>
+        <li style="margin-bottom: 15px;"><i class="fas fa-tools" style="color: #fcd000; margin-right: 10px;"></i><strong>Equipo certificado</strong> y con experiencia comprobada</li>
+      </ul>
+    </section>
+
     <section class="contacto fade-in" id="contacto">
       <h3>Contacto</h3>
-      <p>¿Necesitas instalar un tomacorriente, una luminaria o una revisión eléctrica completa? También realizamos asesorías y proyectos eléctricos personalizados.</p>
+      <p>¿Necesitas instalar un tomacorriente, una luminaria o una revisión eléctrica completa? También realizamos asesorías y proyectos eléctricos personalizados. ¡Estamos listos para ayudarte!</p>
       <ul>
-        <li><i class="fas fa-phone-alt"></i> <strong>Teléfono:</strong> <a href="tel:+50374646746" style="color:white;">7465-6746</a></li>
-        <li><i class="fas fa-envelope"></i> <strong>Correo:</strong> <a href="mailto:manovols.electricidadsegura@hotmail.com" style="color:white;">manovols.electricidadsegura@hotmail.com</a></li>
+        <li><i class="fas fa-phone-alt"></i> <strong>Teléfono:</strong> <a href="tel:+50374646746" style="color: white;">7465-6746</a></li>
+        <li><i class="fas fa-envelope"></i> <strong>Correo:</strong> <a href="mailto:manovols.electricidadsegura@hotmail.com" style="color: white;">manovols.electricidadsegura@hotmail.com</a></li>
       </ul>
+      <p style="margin-top: 20px;">
+        <a href="formulario.html" style="background: #fcd000; color: #000; padding: 12px 20px; border-radius: 5px; font-weight: bold; text-decoration: none;">
+          Llena el formulario de contacto
+        </a>
+      </p>
     </section>
   </main>
 
@@ -232,20 +365,30 @@
   </a>
 
   <script>
-    // Animaciones fade-in
     const elements = document.querySelectorAll('.fade-in');
     const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => { if(entry.isIntersecting){ entry.target.classList.add('show'); }});
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
     });
     elements.forEach(el => observer.observe(el));
 
     // Toggle menu responsive
     const toggleButton = document.getElementById('menu-toggle');
     const nav = document.getElementById('nav');
-    toggleButton.addEventListener('click', ()=>{ nav.classList.toggle('show'); });
-    nav.querySelectorAll('a').forEach(link => link.addEventListener('click', ()=>{ nav.classList.remove('show'); }));
+
+    toggleButton.addEventListener('click', () => {
+      nav.classList.toggle('show');
+    });
+
+    // Optional: close menu when clicking a link (mobile)
+    nav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        nav.classList.remove('show');
+      });
+    });
   </script>
 </body>
 </html>
-
-
