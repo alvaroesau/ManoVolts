@@ -194,6 +194,14 @@
       text-decoration: none;
       z-index: 1000;
     }
+    .contacto-item a {
+  word-break: break-word;
+  overflow-wrap: anywhere;
+  word-wrap: break-word;
+  text-align: center;
+  display: block;
+}
+    
     .contacto {
   background: linear-gradient(135deg, #0c1e2c, #112233);
   padding: 90px 40px;
@@ -293,7 +301,11 @@
       opacity: 1;
       transform: translateY(0);
     }
-
+    @media (max-width: 480px) {
+  .contacto-item {
+    min-width: 100%;
+  }
+}
     @media (max-width: 600px) {
       nav {
         display: none;
@@ -476,5 +488,6 @@
 
 </body>
 </html>
+
 
 
