@@ -194,6 +194,94 @@
       text-decoration: none;
       z-index: 1000;
     }
+    .contacto {
+  background: linear-gradient(135deg, #0c1e2c, #112233);
+  padding: 90px 40px;
+  color: white;
+  text-align: center;
+}
+
+.contacto-card {
+  max-width: 850px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 25px;
+  padding: 50px 40px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+
+.contacto h3 {
+  font-size: 2.4rem;
+  color: #fcd000;
+  margin-bottom: 20px;
+}
+
+.contacto p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin-bottom: 35px;
+}
+
+.contacto-info {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+.contacto-item {
+  background: rgba(0,0,0,0.4);
+  padding: 20px 25px;
+  border-radius: 15px;
+  min-width: 260px;
+}
+
+.contacto-item i {
+  font-size: 2rem;
+  color: #fcd000;
+  margin-bottom: 10px;
+}
+
+.contacto-item a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.1rem;
+}
+
+.contacto-botones {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.boton-principal {
+  background: #fcd000;
+  color: #000;
+  padding: 15px 30px;
+  border-radius: 40px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-decoration: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.boton-principal:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+}
+
+.boton-secundario {
+  background: #25D366;
+  color: white;
+  padding: 15px 30px;
+  border-radius: 40px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-decoration: none;
+}
+
 
     .fade-in {
       opacity: 0;
@@ -321,13 +409,48 @@
     </div>
   </div>
 </section>
-<section class="contacto fade-in" id="contacto"> <h3>Contacto</h3>
-  <p>¿Necesitas instalar un tomacorriente, una luminaria o una revisión eléctrica completa? También realizamos asesorías y 
-    proyectos eléctricos personalizados. ¡Estamos listos para ayudarte!</p> <ul> <li><i class="fas fa-phone-alt"></i>
-      <strong>Teléfono:</strong> <a href="tel:+50374646746" style="color: white;">74095278</a></li> <li><i class="fas fa-envelope"></i> 
-        <strong>Correo:</strong> <a href="mailto:manovols.electricidadsegura@hotmail.com" style="color: white;">manovols.electricidadsegura@hotmail.com</a>
-      </li> </ul> <p style="margin-top: 20px;"> <a href="formulario.html" style="background: #fcd000; color: #000; padding: 12px 20px; border-radius: 5px; font-weight: bold; text-decoration: none;"> Llena el formulario de contacto </a> </p> </section>
-</main>
+<section class="contacto fade-in" id="contacto">
+  <div class="contacto-card">
+
+    <h3>Contáctanos Hoy</h3>
+
+    <p>
+      ¿Necesitas una instalación eléctrica segura, una revisión urgente o asesoría profesional?
+      En <strong>MANOVOLT</strong> estamos listos para ayudarte con atención inmediata y garantía.
+    </p>
+
+    <div class="contacto-info">
+
+      <div class="contacto-item">
+        <i class="fas fa-phone-alt"></i>
+        <p><strong>Llámanos</strong></p>
+        <a href="tel:+50374095278">7409-5278</a>
+      </div>
+
+      <div class="contacto-item">
+        <i class="fas fa-envelope"></i>
+        <p><strong>Escríbenos</strong></p>
+        <a href="mailto:manovols.electricidadsegura@hotmail.com">
+          manovols.electricidadsegura@hotmail.com
+        </a>
+      </div>
+
+    </div>
+
+    <div class="contacto-botones">
+      <a href="https://wa.me/50374095278" target="_blank" class="boton-secundario">
+        <i class="fab fa-whatsapp"></i> WhatsApp inmediato
+      </a>
+
+      <a href="formulario.html" class="boton-principal">
+        Solicitar cotización
+      </a>
+    </div>
+
+  </div>
+</section>
+
+  </main>
 
 <footer>
   © 2025 MANOVOLT - Todos los derechos reservados
@@ -353,4 +476,5 @@
 
 </body>
 </html>
+
 
