@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Formulario de Contacto - MANOVOLT</title>
 
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- EmailJS -->
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 
   <style>
     body {
@@ -14,7 +17,6 @@
       background: linear-gradient(135deg, #0c1e2c, #1a3a4d);
       color: white;
       margin: 0;
-      padding: 0;
     }
 
     header {
@@ -23,7 +25,6 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      position: relative;
     }
 
     .logo {
@@ -32,45 +33,25 @@
       color: #fcd000;
     }
 
-    nav {
-      display: flex;
-      gap: 15px;
-    }
-
     nav a {
       color: white;
+      margin-left: 15px;
       text-decoration: none;
       font-weight: bold;
-      padding: 8px 12px;
-      border-radius: 5px;
-      transition: background-color 0.3s;
-    }
-
-    nav a:hover {
-      background-color: #fcd000;
-      color: #000;
-    }
-
-    .menu-toggle {
-      display: none;
-      font-size: 28px;
-      color: white;
-      cursor: pointer;
     }
 
     h2 {
-      color: #fcd000;
       text-align: center;
+      color: #fcd000;
       margin-top: 40px;
     }
 
     form {
       max-width: 600px;
       margin: 30px auto;
-      background-color: #1a3a4d;
+      background: #1a3a4d;
       padding: 30px;
       border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.4);
     }
 
     label {
@@ -83,178 +64,106 @@
       width: 100%;
       padding: 10px;
       margin-bottom: 20px;
-      border: none;
       border-radius: 5px;
+      border: none;
     }
 
     button {
-      background-color: #fcd000;
+      background: #fcd000;
       color: #000;
       padding: 12px 25px;
-      border: none;
       border-radius: 5px;
+      border: none;
       font-weight: bold;
       cursor: pointer;
     }
 
     button:hover {
-      background-color: #e0b800;
+      background: #e0b800;
     }
 
-    /* Modal */
     .modal {
       display: none;
       position: fixed;
       inset: 0;
-      background: rgba(0, 0, 0, 0.7);
+      background: rgba(0,0,0,0.7);
       justify-content: center;
       align-items: center;
-      z-index: 1000;
     }
 
     .modal-content {
-      background: #fff;
-      color: #000;
+      background: white;
+      color: black;
       padding: 30px;
       border-radius: 10px;
       text-align: center;
       max-width: 400px;
       width: 90%;
     }
-
-    .modal-content button {
-      margin-top: 20px;
-      background-color: #fcd000;
-      padding: 10px 20px;
-      font-weight: bold;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-
-    .modal-content button:hover {
-      background-color: #e0b800;
-    }
-
-    /* Responsive email */
-    .email {
-      word-break: break-word;
-      overflow-wrap: anywhere;
-    }
-
-    @media (max-width: 768px) {
-      nav {
-        display: none;
-        flex-direction: column;
-        background-color: #0c1e2c;
-        position: absolute;
-        top: 60px;
-        right: 0;
-        width: 100%;
-        padding: 20px 0;
-        text-align: center;
-      }
-
-      nav.active {
-        display: flex;
-      }
-
-      .menu-toggle {
-        display: block;
-      }
-    }
   </style>
 </head>
 
 <body>
 
-  <!-- Header -->
-  <header>
-    <div class="logo">⚡ MANOVOLT</div>
+<header>
+  <div class="logo">⚡ MANOVOLT</div>
+</header>
 
-    <div class="menu-toggle" id="menu-toggle">
-      <i class="fas fa-bars"></i>
-    </div>
+<h2>Formulario de Contacto</h2>
 
-    <nav id="nav-links">
-      <a href="index.html">Inicio</a>
-      <a href="galeria.html">Galería</a>
-      <a href="consejos.html">Consejos</a>
-      <a href="formulario.html">Contacto</a>
-    </nav>
-  </header>
+<form id="contact-form">
+  <label>Nombre completo</label>
+  <input type="text" id="nombre" required>
 
-  <h2>Formulario de Contacto</h2>
+  <label>Teléfono</label>
+  <input type="tel" id="telefono" required>
 
-  <!-- Formulario -->
-  <form id="contact-form">
+  <label>Correo</label>
+  <input type="email" id="correo" required>
 
-    <!-- Campos ocultos FormSubmit -->
-    <input type="hidden" name="_subject" value="Nuevo mensaje desde MANOVOLT">
-    <input type="hidden" name="_captcha" value="false">
-    <input type="hidden" name="_template" value="table">
+  <label>Mensaje</label>
+  <textarea id="mensaje" rows="5" required></textarea>
 
-    <label for="nombre">Nombre completo:</label>
-    <input type="text" id="nombre" name="nombre" required>
+  <button type="submit">Enviar mensaje</button>
+</form>
 
-    <label for="telefono">Número de teléfono:</label>
-    <input type="tel" id="telefono" name="telefono" required pattern="[0-9]{8}" placeholder="Ej: 74656746">
-
-    <label for="correo">Correo electrónico:</label>
-    <input type="email" id="correo" name="correo" required>
-
-    <label for="mensaje">Mensaje:</label>
-    <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
-
-    <button type="submit">Enviar mensaje</button>
-  </form>
-
-  <!-- Modal -->
-  <div class="modal" id="modal">
-    <div class="modal-content">
-      <h3>Mensaje enviado con éxito</h3>
-      <p>Gracias por contactarnos. Te responderemos pronto.</p>
-      <button onclick="window.location.href='index.html'">OK</button>
-    </div>
+<div class="modal" id="modal">
+  <div class="modal-content">
+    <h3>Mensaje enviado correctamente</h3>
+    <p>Te responderemos lo antes posible.</p>
+    <button onclick="location.href='index.html'">OK</button>
   </div>
+</div>
 
-  <script>
-    // Envío AJAX
-    document.getElementById('contact-form').addEventListener('submit', function(e) {
-      e.preventDefault();
+<script>
+  (function(){
+    emailjs.init("TU_PUBLIC_KEY"); // 🔴 PEGA AQUÍ TU PUBLIC KEY
+  })();
 
-      const form = e.target;
-      const data = new FormData(form);
+  document.getElementById("contact-form").addEventListener("submit", function(e) {
+    e.preventDefault();
 
-      fetch("https://formsubmit.co/ajax/manovols.electricidadsegura@hotmail.com", {
-        method: "POST",
-        body: data
-      })
-      .then(response => {
-        if (response.ok) {
-          document.getElementById('modal').style.display = 'flex';
-          form.reset();
-        } else {
-          alert("Error al enviar el mensaje.");
-        }
-      })
-      .catch(() => alert("Error de conexión."));
+    const templateParams = {
+      nombre: document.getElementById("nombre").value,
+      telefono: document.getElementById("telefono").value,
+      correo: document.getElementById("correo").value,
+      mensaje: document.getElementById("mensaje").value
+    };
+
+    emailjs.send(
+      "TU_SERVICE_ID",      // 🔴 Service ID
+      "TU_TEMPLATE_ID",     // 🔴 Template ID
+      templateParams
+    )
+    .then(() => {
+      document.getElementById("modal").style.display = "flex";
+      document.getElementById("contact-form").reset();
+    })
+    .catch(() => {
+      alert("Error al enviar el mensaje. Intenta nuevamente.");
     });
-
-    // Menú hamburguesa
-    const toggle = document.getElementById('menu-toggle');
-    const nav = document.getElementById('nav-links');
-
-    toggle.addEventListener('click', () => {
-      nav.classList.toggle('active');
-    });
-
-    document.querySelectorAll('#nav-links a').forEach(link => {
-      link.addEventListener('click', () => {
-        nav.classList.remove('active');
-      });
-    });
-  </script>
+  });
+</script>
 
 </body>
 </html>
