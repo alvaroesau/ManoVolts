@@ -4,7 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Formulario de Contacto - MANOVOLT</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -98,11 +101,11 @@
       background-color: #e0b800;
     }
 
+    /* Modal */
     .modal {
       display: none;
       position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
+      inset: 0;
       background: rgba(0, 0, 0, 0.7);
       justify-content: center;
       align-items: center;
@@ -116,12 +119,12 @@
       border-radius: 10px;
       text-align: center;
       max-width: 400px;
+      width: 90%;
     }
 
     .modal-content button {
       margin-top: 20px;
       background-color: #fcd000;
-      color: #000;
       padding: 10px 20px;
       font-weight: bold;
       border: none;
@@ -131,6 +134,12 @@
 
     .modal-content button:hover {
       background-color: #e0b800;
+    }
+
+    /* Responsive email */
+    .email {
+      word-break: break-word;
+      overflow-wrap: anywhere;
     }
 
     @media (max-width: 768px) {
@@ -146,10 +155,6 @@
         text-align: center;
       }
 
-      nav a {
-        padding: 12px 0;
-      }
-
       nav.active {
         display: flex;
       }
@@ -160,14 +165,17 @@
     }
   </style>
 </head>
+
 <body>
 
-  <!-- Menú -->
+  <!-- Header -->
   <header>
-    <div class="logo">⚡<span>MANOVOLT</span></div>
+    <div class="logo">⚡ MANOVOLT</div>
+
     <div class="menu-toggle" id="menu-toggle">
       <i class="fas fa-bars"></i>
     </div>
+
     <nav id="nav-links">
       <a href="index.html">Inicio</a>
       <a href="galeria.html">Galería</a>
@@ -178,7 +186,14 @@
 
   <h2>Formulario de Contacto</h2>
 
+  <!-- Formulario -->
   <form id="contact-form">
+
+    <!-- Campos ocultos FormSubmit -->
+    <input type="hidden" name="_subject" value="Nuevo mensaje desde MANOVOLT">
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_template" value="table">
+
     <label for="nombre">Nombre completo:</label>
     <input type="text" id="nombre" name="nombre" required>
 
@@ -194,18 +209,18 @@
     <button type="submit">Enviar mensaje</button>
   </form>
 
-  <!-- Modal de confirmación -->
+  <!-- Modal -->
   <div class="modal" id="modal">
     <div class="modal-content">
-      <h3>✅ Tu mensaje ha sido enviado con éxito</h3>
+      <h3>Mensaje enviado con éxito</h3>
       <p>Gracias por contactarnos. Te responderemos pronto.</p>
       <button onclick="window.location.href='index.html'">OK</button>
     </div>
   </div>
 
   <script>
-    // Enviar formulario con AJAX
-    document.getElementById('contact-form').addEventListener('submit', function (e) {
+    // Envío AJAX
+    document.getElementById('contact-form').addEventListener('submit', function(e) {
       e.preventDefault();
 
       const form = e.target;
@@ -220,22 +235,21 @@
           document.getElementById('modal').style.display = 'flex';
           form.reset();
         } else {
-          alert('Error al enviar el mensaje.');
+          alert("Error al enviar el mensaje.");
         }
       })
-      .catch(() => alert('Error al conectar con el servidor.'));
+      .catch(() => alert("Error de conexión."));
     });
 
     // Menú hamburguesa
     const toggle = document.getElementById('menu-toggle');
     const nav = document.getElementById('nav-links');
+
     toggle.addEventListener('click', () => {
       nav.classList.toggle('active');
     });
 
-    // Cierra el menú al hacer clic en un enlace (opcional, recomendado en móviles)
-    const links = document.querySelectorAll('#nav-links a');
-    links.forEach(link => {
+    document.querySelectorAll('#nav-links a').forEach(link => {
       link.addEventListener('click', () => {
         nav.classList.remove('active');
       });
