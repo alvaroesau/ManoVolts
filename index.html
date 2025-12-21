@@ -1,10 +1,11 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>MANOVOLT - Servicios Eléctricos</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
   <style>
     body {
       margin: 0;
@@ -40,11 +41,6 @@
       color: white;
     }
 
-    nav {
-      display: flex;
-      align-items: center;
-    }
-
     nav a {
       margin-left: 20px;
       color: white;
@@ -67,13 +63,11 @@
       flex-wrap: wrap;
       justify-content: space-between;
       align-items: center;
-      animation: fadeIn 1.5s ease-in-out;
     }
 
     .hero-text {
       flex: 1;
       min-width: 300px;
-      margin-right: 20px;
     }
 
     .hero h1 {
@@ -88,64 +82,82 @@
 
     .hero img {
       max-width: 400px;
-      width: 100%;
-      height: auto;
       border-radius: 10px;
     }
 
-    .contacto p {
-      font-size: 1.3rem;
-      line-height: 1.6;
-    }
+    /* ===== SERVICIOS MEJORADOS ===== */
 
     .servicios {
-      background-color: #f8f8f8;
+      background: linear-gradient(135deg, #ffffff, #f2f2f2);
       color: #000;
-      padding: 60px 40px;
+      padding: 80px 40px;
+      text-align: center;
     }
 
     .servicios h2 {
+      color: #0c1e2c;
+      font-size: 2.4rem;
+      margin-bottom: 15px;
+    }
+
+    .servicios .subtitulo {
+      font-size: 1.2rem;
+      color: #555;
+      margin-bottom: 50px;
+    }
+
+    .servicios-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .servicio-card {
+      background-color: #ffffff;
+      border-radius: 18px;
+      padding: 30px 25px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .servicio-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+    }
+
+    .servicio-card i {
+      font-size: 2.5rem;
       color: #fcd000;
-      margin-bottom: 20px;
+      margin-bottom: 15px;
     }
 
-    .servicios ul {
-      line-height: 2;
-      padding-left: 20px;
-    }
-
-    .servicios li {
+    .servicio-card h3 {
+      font-size: 1.2rem;
       margin-bottom: 10px;
+      color: #0c1e2c;
     }
 
-    .servicios i {
-      margin-right: 10px;
-      color: #fcd000;
+    .servicio-card p {
+      font-size: 0.95rem;
+      color: #555;
+      line-height: 1.5;
     }
 
     .zona {
-      margin-top: 20px;
+      margin-top: 50px;
+      font-size: 1.1rem;
       font-weight: bold;
+      color: #0c1e2c;
     }
+
+    /* ===== TESTIMONIOS ===== */
 
     .testimonios {
       background-color: #112233;
       padding: 60px 40px;
-      color: white;
       text-align: center;
-    }
-
-    .testimonios h2 {
-      color: #fcd000;
-      margin-bottom: 40px;
-      font-size: 2rem;
-    }
-
-    .contenedor-testimonios {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      justify-content: center;
     }
 
     .testimonio {
@@ -153,17 +165,14 @@
       padding: 20px;
       border-radius: 15px;
       max-width: 300px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.4);
+      margin: 10px;
     }
 
-    .testimonio p {
-      font-style: italic;
-      margin-bottom: 10px;
-    }
-
-    .testimonio h4 {
-      font-weight: normal;
-      color: #fcd000;
+    .contenedor-testimonios {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
     }
 
     footer {
@@ -183,14 +192,13 @@
       padding: 15px;
       border-radius: 50%;
       text-decoration: none;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
       z-index: 1000;
     }
 
     .fade-in {
       opacity: 0;
       transform: translateY(30px);
-      transition: opacity 1s ease-out, transform 1s ease-out;
+      transition: 1s;
     }
 
     .fade-in.show {
@@ -198,198 +206,145 @@
       transform: translateY(0);
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
     @media (max-width: 600px) {
-      header {
-        padding: 20px;
-      }
-
-      .hero {
-        flex-direction: column;
-        text-align: center;
-      }
-
-      .hero-text {
-        margin-right: 0;
-      }
-
-      .hero h1 {
-        font-size: 2rem;
-      }
-
-      .hero p {
-        font-size: 1rem;
-      }
-
-      .hero img {
-        max-width: 80%;
-        margin-top: 20px;
-      }
-
       nav {
         display: none;
         flex-direction: column;
-        align-items: flex-start;
-        background-color: rgba(0, 0, 0, 0.95);
+        background: black;
         position: absolute;
-        top: 70px;
         right: 20px;
+        top: 70px;
         padding: 15px;
-        border-radius: 10px;
       }
 
       nav.show {
         display: flex;
       }
 
-      nav a {
-        margin: 10px 0;
-      }
-
       .menu-toggle {
         display: block;
-      }
-
-      .servicios {
-        padding: 20px;
-      }
-
-      .servicios ul {
-        padding-left: 0;
-      }
-
-      .servicios li {
-        font-size: 1.1rem;
       }
     }
   </style>
 </head>
+
 <body>
-  <header>
-    <div class="logo">
-      <img src="logo-manovolt.jpeg" alt="Logo MANOVOLT">
-      <span>MANOVOLT</span>
+
+<header>
+  <div class="logo">
+    <img src="logo-manovolt.jpeg">
+    <span>MANOVOLT</span>
+  </div>
+
+  <button class="menu-toggle" id="menu-toggle">
+    <i class="fas fa-bars"></i>
+  </button>
+
+  <nav id="nav">
+    <a href="#inicio">Inicio</a>
+    <a href="#servicios">Servicios</a>
+    <a href="#testimonios">Testimonios</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
+</header>
+
+<main>
+
+<section class="hero fade-in" id="inicio">
+  <div class="hero-text">
+    <h1>Conectamos tu hogar con seguridad y confianza</h1>
+    <p>
+      Ingenieros electricistas con más de <strong>9 años de experiencia</strong>
+      brindando soluciones eléctricas seguras, eficientes y garantizadas.
+    </p>
+  </div>
+  <img src="electricista.png">
+</section>
+
+<section class="servicios fade-in" id="servicios">
+  <h2>Nuestros Servicios Eléctricos</h2>
+  <p class="subtitulo">Soluciones profesionales para hogares y empresas</p>
+
+  <div class="servicios-grid">
+
+    <div class="servicio-card">
+      <i class="fas fa-lightbulb"></i>
+      <h3>Instalaciones Eléctricas</h3>
+      <p>Instalación segura de luminarias, tomacorrientes y apagadores.</p>
     </div>
-    <button class="menu-toggle" id="menu-toggle">
-      <i class="fas fa-bars"></i>
-    </button>
-    <nav id="nav">
-      <a href="#inicio">Inicio</a>
-      <a href="#servicios">Servicios</a>
-      <a href="#testimonios">Testimonios</a>
-      <a href="#contacto">Contacto</a>
-      <a href="galeria.html">Galería</a>
-      <a href="consejos.html">Consejos Eléctricos</a>
-    </nav>
-  </header>
 
-  <main>
-    <section class="hero fade-in" id="inicio">
-      <div class="hero-text">
-        <h1>Conectamos tu hogar con seguridad y confianza</h1>
-        <p>
-          En MANOVOLT somos un equipo de ingenieros electricistas con más de <strong>9 años de experiencia</strong> ofreciendo soluciones eléctricas <strong>seguras, confiables y duraderas</strong>. Nos especializamos en proyectos residenciales, comerciales e industriales con un enfoque profesional y personalizado.
-        </p>
-      </div>
-      <img src="electricista.png" alt="Electricista" />
-    </section>
+    <div class="servicio-card">
+      <i class="fas fa-tools"></i>
+      <h3>Mantenimiento</h3>
+      <p>Corrección de fallas eléctricas y conexiones defectuosas.</p>
+    </div>
 
-    <section class="servicios fade-in" id="servicios">
-      <h2>Servicios</h2>
-      <ul>
-        <li><i class="fas fa-lightbulb"></i> Instalación de lámparas, focos, tomacorrientes y apagadores</li>
-        <li><i class="fas fa-tools"></i> Mantenimiento y corrección de fallas eléctricas</li>
-        <li><i class="fas fa-bolt"></i> Instalación de tableros y protecciones</li>
-        <li><i class="fas fa-bolt"></i> Diseño de planos Eléctricos</li>
-        <li><i class="fas fa-house"></i> Cableado residencial y comercial</li>
-        <li><i class="fas fa-exclamation-triangle"></i> Revisión de cortocircuitos y sobrecargas</li>
-        <li><i class="fas fa-comments"></i> Asesoría para nuevos proyectos</li>
-        <li><i class="fas fa-comments"></i> Revisión de planos para OIA</li>
-      </ul>
-      <div class="zona">Zonas de trabajo: El Salvador</div>
-    </section>
+    <div class="servicio-card">
+      <i class="fas fa-bolt"></i>
+      <h3>Tableros Eléctricos</h3>
+      <p>Instalación de breakers y protecciones certificadas.</p>
+    </div>
 
-    <section class="testimonios fade-in" id="testimonios">
-      <h2>Testimonios de Clientes</h2>
-      <div class="contenedor-testimonios">
-        <div class="testimonio">
-          <p>"Muy profesional, me solucionó un corto en minutos. ¡Recomendado!"</p>
-          <h4>– Ana G.</h4>
-        </div>
-        <div class="testimonio">
-          <p>"Rápido y eficiente. Me instaló todo el sistema eléctrico sin problemas."</p>
-          <h4>– Carlos M.</h4>
-        </div>
-        <div class="testimonio">
-          <p>"Confiable y honesto. Siempre lo llamo para cualquier trabajo eléctrico."</p>
-          <h4>– Laura P.</h4>
-        </div>
-      </div>
-    </section>
+    <div class="servicio-card">
+      <i class="fas fa-drafting-compass"></i>
+      <h3>Planos Eléctricos</h3>
+      <p>Diseño y revisión de planos conforme normativa.</p>
+    </div>
 
-    <section class="ventajas fade-in" id="ventajas" style="background-color: #1a2c3b; padding: 60px 40px; text-align: center;">
-      <h2 style="color: #fcd000; font-size: 2rem; margin-bottom: 30px;">¿Por qué elegirnos?</h2>
-      <ul style="list-style: none; padding: 0; max-width: 800px; margin: 0 auto; text-align: left;">
-        <li style="margin-bottom: 15px;"><i class="fas fa-shield-alt" style="color: #fcd000; margin-right: 10px;"></i><strong>Garantía en todos nuestros trabajos eléctricos</strong></li>
-        <li style="margin-bottom: 15px;"><i class="fas fa-user-check" style="color: #fcd000; margin-right: 10px;"></i><strong>Atención personalizada</strong> para cada cliente y necesidad</li>
-        <li style="margin-bottom: 15px;"><i class="fas fa-bolt" style="color: #fcd000; margin-right: 10px;"></i><strong>Respuesta rápida</strong> y eficiente ante cualquier urgencia</li>
-        <li style="margin-bottom: 15px;"><i class="fas fa-tools" style="color: #fcd000; margin-right: 10px;"></i><strong>Equipo certificado</strong> y con experiencia comprobada</li>
-      </ul>
-    </section>
+    <div class="servicio-card">
+      <i class="fas fa-house"></i>
+      <h3>Cableado Completo</h3>
+      <p>Cableado residencial y comercial seguro y ordenado.</p>
+    </div>
 
-    <section class="contacto fade-in" id="contacto">
-      <h3>Contacto</h3>
-      <p>¿Necesitas instalar un tomacorriente, una luminaria o una revisión eléctrica completa? También realizamos asesorías y proyectos eléctricos personalizados. ¡Estamos listos para ayudarte!</p>
-      <ul>
-        <li><i class="fas fa-phone-alt"></i> <strong>Teléfono:</strong> <a href="tel:+50374646746" style="color: white;">74095278</a></li>
-        <li><i class="fas fa-envelope"></i> <strong>Correo:</strong> <a href="mailto:manovols.electricidadsegura@hotmail.com" style="color: white;">manovols.electricidadsegura@hotmail.com</a></li>
-      </ul>
-      <p style="margin-top: 20px;">
-        <a href="formulario.html" style="background: #fcd000; color: #000; padding: 12px 20px; border-radius: 5px; font-weight: bold; text-decoration: none;">
-          Llena el formulario de contacto
-        </a>
-      </p>
-    </section>
-  </main>
+    <div class="servicio-card">
+      <i class="fas fa-exclamation-triangle"></i>
+      <h3>Revisión de Riesgos</h3>
+      <p>Detección de cortocircuitos y sobrecargas.</p>
+    </div>
 
-  <footer>
-    © 2025 MANOVOLT - Todos los derechos reservados
-  </footer>
+  </div>
 
-  <a href="https://wa.me/50374095278" target="_blank" class="boton-wsp" aria-label="Contactar por WhatsApp">
-    <i class="fab fa-whatsapp"></i>
-  </a>
+  <div class="zona">Zonas de trabajo: Todo El Salvador</div>
+</section>
 
-  <script>
-    const elements = document.querySelectorAll('.fade-in');
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('show');
-        }
-      });
+<section class="testimonios fade-in" id="testimonios">
+  <h2>Testimonios</h2>
+  <div class="contenedor-testimonios">
+    <div class="testimonio">
+      <p>"Muy profesional y rápido."</p>
+      <strong>- Ana G.</strong>
+    </div>
+    <div class="testimonio">
+      <p>"Trabajo limpio y seguro."</p>
+      <strong>- Carlos M.</strong>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  © 2025 MANOVOLT - Todos los derechos reservados
+</footer>
+
+<a href="https://wa.me/50374095278" class="boton-wsp">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
+<script>
+  const elements = document.querySelectorAll('.fade-in');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('show');
     });
-    elements.forEach(el => observer.observe(el));
+  });
+  elements.forEach(el => observer.observe(el));
 
-    // Toggle menu responsive
-    const toggleButton = document.getElementById('menu-toggle');
-    const nav = document.getElementById('nav');
+  document.getElementById('menu-toggle').onclick = () => {
+    document.getElementById('nav').classList.toggle('show');
+  };
+</script>
 
-    toggleButton.addEventListener('click', () => {
-      nav.classList.toggle('show');
-    });
-
-    // Optional: close menu when clicking a link (mobile)
-    nav.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        nav.classList.remove('show');
-      });
-    });
-  </script>
 </body>
 </html>
-
