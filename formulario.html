@@ -2,164 +2,43 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Formulario de Contacto - MANOVOLT</title>
-
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-  <!-- EmailJS -->
-  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #0c1e2c, #1a3a4d);
-      color: white;
-      margin: 0;
-    }
-
-    header {
-      background-color: #0c1e2c;
-      padding: 15px 30px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .logo {
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: #fcd000;
-    }
-
-    nav a {
-      color: white;
-      margin-left: 15px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    h2 {
-      color: #fcd000;
-      text-align: center;
-      margin-top: 40px;
-    }
-
-    form {
-      max-width: 600px;
-      margin: 30px auto;
-      background-color: #1a3a4d;
-      padding: 30px;
-      border-radius: 10px;
-    }
-
-    label {
-      display: block;
-      margin-bottom: 8px;
-      font-weight: bold;
-    }
-
-    input, textarea {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 20px;
-      border-radius: 5px;
-      border: none;
-    }
-
-    button {
-      background-color: #fcd000;
-      color: #000;
-      padding: 12px 25px;
-      border: none;
-      border-radius: 5px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    button:hover {
-      background-color: #e0b800;
-    }
-
-    .modal {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.7);
-      justify-content: center;
-      align-items: center;
-    }
-
-    .modal-content {
-      background: white;
-      color: black;
-      padding: 30px;
-      border-radius: 10px;
-      text-align: center;
-    }
-  </style>
+  <title>Formulario de Contacto</title>
 </head>
-
 <body>
 
-<header>
-  <div class="logo">⚡ MANOVOLT</div>
-  <nav>
-    <a href="index.html">Inicio</a>
-    <a href="galeria.html">Galería</a>
-    <a href="consejos.html">Consejos</a>
-    <a href="formulario.html">Contacto</a>
-  </nav>
-</header>
-
-<h2>Formulario de Contacto</h2>
-
-<form id="contact-form">
-  <label>Nombre completo</label>
-  <input type="text" name="nombre" required>
-
-  <label>Teléfono</label>
-  <input type="tel" name="telefono" required pattern="[0-9]{8}" placeholder="Ej: 74656746">
-
-  <label>Correo electrónico</label>
-  <input type="email" name="correo" required>
-
-  <label>Mensaje</label>
-  <textarea name="mensaje" rows="5" required></textarea>
-
-  <button type="submit">Enviar mensaje</button>
+<form id="contactForm">
+  <input type="text" id="name" placeholder="Nombre" required>
+  <input type="email" id="email" placeholder="Correo" required>
+  <textarea id="message" placeholder="Mensaje" required></textarea>
+  <button type="submit">Enviar</button>
 </form>
 
-<div class="modal" id="modal">
-  <div class="modal-content">
-    <h3>Mensaje enviado correctamente</h3>
-    <p>Te responderemos a la brevedad.</p>
-    <button onclick="window.location.href='index.html'">Aceptar</button>
-  </div>
-</div>
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 
 <script>
-  // Inicializar EmailJS
-  (function(){
-    emailjs.init("5sa5LORl1kOczlXhc");
-  })();
+(function () {
+  emailjs.init("TU_PUBLIC_KEY"); // PUBLIC KEY de EmailJS
+})();
 
-  document.getElementById("contact-form").addEventListener("submit", function(e) {
-    e.preventDefault();
+document.getElementById("contactForm").addEventListener("submit", function (e) {
+  e.preventDefault();
 
-    emailjs.sendForm(
-      "service_1n6ojpp",
-      "template_4yfqrmy",
-      this
-    ).then(() => {
-      document.getElementById("modal").style.display = "flex";
-      this.reset();
-    }, (error) => {
-      alert("Error al enviar el mensaje");
-      console.error(error);
-    });
+  emailjs.send("TU_SERVICE_ID", "TU_TEMPLATE_ID", {
+    title: "Nuevo mensaje desde la web",
+    name: document.getElementById("name").value,
+    email: document.getElementById("email").value,
+    message: document.getElementById("message").value,
+    time: new Date().toLocaleString()
+  })
+  .then(function () {
+    alert("Mensaje enviado correctamente");
+    document.getElementById("contactForm").reset();
+  })
+  .catch(function (error) {
+    console.error("EmailJS Error:", error);
+    alert("Error al enviar el mensaje");
   });
+});
 </script>
 
 </body>
