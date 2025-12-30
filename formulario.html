@@ -2,43 +2,105 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Formulario de ContactoS</title>
+  <title>Formulario de Contacto</title>
+  <style>
+    .field {
+      margin-bottom: 10px;
+    }
+
+    .field label {
+      display: block;
+      font-size: 12px;
+      color: #777;
+    }
+
+    .field input,
+    .field textarea {
+      display: block;
+      min-width: 250px;
+      line-height: 1.5;
+      font-size: 14px;
+      padding: 6px;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+
+    button {
+      padding: 8px 30px;
+      font-size: 14px;
+      background-color: #4460AA;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+  </style>
 </head>
 <body>
 
 <form id="contactForm">
-  <input type="text" id="name" placeholder="Nombre" required>
-  <input type="email" id="email" placeholder="Correo" required>
-  <textarea id="message" placeholder="Mensaje" required></textarea>
-  <button type="submit">Enviar</button>
+
+  <div class="field">
+    <label>Nombre</label>
+    <input type="text" name="name" required>
+  </div>
+
+  <div class="field">
+    <label>Correo</label>
+    <input type="email" name="email" required>
+  </div>
+
+  <div class="field">
+    <label>Mensaje</label>
+    <textarea name="message" required></textarea>
+  </div>
+
+  <!-- Campos ocultos que usa EmailJS -->
+  <input type="hidden" name="title" value="Nuevo mensaje desde la web">
+  <input type="hidden" name="time">
+
+  <button type="submit" id="button">Enviar</button>
 </form>
 
-<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
 <script>
-(function () {
-  emailjs.init("TU_PUBLIC_KEY"); // PUBLIC KEY de EmailJS
-})();
+  // Inicializar EmailJS
+  emailjs.init('0PLfR-KE2ltraudma');
 
-document.getElementById("contactForm").addEventListener("submit", function (e) {
-  e.preventDefault();
+  const form = document.getElementById('contactForm');
+  const button = document.getElementById('button');
 
-  emailjs.send("TU_SERVICE_ID", "TU_TEMPLATE_ID", {
-    title: "Nuevo mensaje desde la web",
-    name: document.getElementById("name").value,
-    email: document.getElementById("email").value,
-    message: document.getElementById("message").value,
-    time: new Date().toLocaleString()
-  })
-  .then(function () {
-    alert("Mensaje enviado correctamente");
-    document.getElementById("contactForm").reset();
-  })
-  .catch(function (error) {
-    console.error("EmailJS Error:", error);
-    alert("Error al enviar el mensaje");
+  form.addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    // Asignar fecha y hora automáticamente
+    form.time.value = new Date().toLocaleString();
+
+    button.disabled = true;
+    button.textContent = 'Enviando...';
+
+    emailjs.sendForm('default_service', 'template_4yfqrmy', form)
+      .then(() => {
+        alert('Mensaje enviado correctamente ✅');
+        form.reset();
+      })
+      .catch((error) => {
+        console.error('EmailJS Error:', error);
+        alert('Error al enviar el mensaje ❌');
+      })
+      .finally(() => {
+        button.disabled = false;
+        button.textContent = 'Enviar';
+      });
   });
-});
 </script>
 
 </body>
