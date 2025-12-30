@@ -1,92 +1,182 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Formulario de Contacto</title>
-  <style>
-    .field {
-      margin-bottom: 10px;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contacto</title>
 
-    .field label {
-      display: block;
-      font-size: 12px;
-      color: #777;
-    }
+<!-- Fuente profesional -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
-    .field input,
-    .field textarea {
-      display: block;
-      min-width: 250px;
-      line-height: 1.5;
-      font-size: 14px;
-      padding: 6px;
-    }
+<style>
+* {
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
 
-    textarea {
-      resize: vertical;
-      min-height: 80px;
-    }
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1f2933, #111827);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
 
-    button {
-      padding: 8px 30px;
-      font-size: 14px;
-      background-color: #4460AA;
-      color: #fff;
-      border: none;
-      cursor: pointer;
-    }
+/* CONTENEDOR */
+.contact-card {
+  background: #ffffff;
+  max-width: 480px;
+  width: 100%;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+  animation: fadeIn 0.8s ease;
+}
 
-    button:disabled {
-      opacity: 0.6;
-      cursor: not-allowed;
-    }
-  </style>
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* TITULO */
+.contact-card h2 {
+  margin: 0 0 10px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.contact-card p {
+  margin-bottom: 25px;
+  font-size: 14px;
+  color: #6b7280;
+}
+
+/* CAMPOS */
+.field {
+  margin-bottom: 18px;
+}
+
+.field label {
+  font-size: 13px;
+  font-weight: 500;
+  color: #374151;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.field input,
+.field textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid #d1d5db;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+.field textarea {
+  resize: vertical;
+  min-height: 110px;
+}
+
+.field input:focus,
+.field textarea:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37,99,235,0.15);
+}
+
+/* BOTON */
+button {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 20px rgba(37,99,235,0.35);
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* FOOTER */
+.form-footer {
+  text-align: center;
+  font-size: 12px;
+  color: #9ca3af;
+  margin-top: 15px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 480px) {
+  .contact-card {
+    padding: 22px;
+  }
+}
+</style>
 </head>
+
 <body>
 
-<form id="contactForm">
-   <div class="field">
-    <H2>FORMULARIO DE CONTACTO</H2>
+<div class="contact-card">
+  <h2>Contáctanos</h2>
+  <p>Déjanos tu mensaje y nos pondremos en contacto contigo lo antes posible.</p>
+
+  <form id="contactForm">
+
+    <div class="field">
+      <label>Nombre</label>
+      <input type="text" name="name" placeholder="Tu nombre completo" required>
+    </div>
+
+    <div class="field">
+      <label>Correo</label>
+      <input type="email" name="email" placeholder="correo@ejemplo.com" required>
+    </div>
+
+    <div class="field">
+      <label>Mensaje</label>
+      <textarea name="message" placeholder="Escribe tu mensaje aquí..." required></textarea>
+    </div>
+
+    <!-- Campos ocultos -->
+    <input type="hidden" name="title" value="Nuevo mensaje desde la web">
+    <input type="hidden" name="time">
+
+    <button type="submit" id="button">Enviar mensaje</button>
+  </form>
+
+  <div class="form-footer">
+    © 2025 · Formulario seguro
   </div>
-
-  <div class="field">
-    <label>Nombre</label>
-    <input type="text" name="name" required>
-  </div>
-
-  <div class="field">
-    <label>Correo</label>
-    <input type="email" name="email" required>
-  </div>
-
-  <div class="field">
-    <label>Mensaje</label>
-    <textarea name="message" required></textarea>
-  </div>
-
-  <!-- Campos ocultos que usa EmailJS -->
-  <input type="hidden" name="title" value="Nuevo mensaje desde la web">
-  <input type="hidden" name="time">
-
-  <button type="submit" id="button">Enviar</button>
-</form>
+</div>
 
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
 <script>
-  // Inicializar EmailJS
   emailjs.init('0PLfR-KE2ltraudma');
 
   const form = document.getElementById('contactForm');
   const button = document.getElementById('button');
 
-  form.addEventListener('submit', function(event) {
-    event.preventDefault();
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
 
-    // Asignar fecha y hora automáticamente
     form.time.value = new Date().toLocaleString();
-
     button.disabled = true;
     button.textContent = 'Enviando...';
 
@@ -95,13 +185,13 @@
         alert('Mensaje enviado correctamente ✅');
         form.reset();
       })
-      .catch((error) => {
-        console.error('EmailJS Error:', error);
+      .catch(err => {
+        console.error(err);
         alert('Error al enviar el mensaje ❌');
       })
       .finally(() => {
         button.disabled = false;
-        button.textContent = 'Enviar';
+        button.textContent = 'Enviar mensaje';
       });
   });
 </script>
