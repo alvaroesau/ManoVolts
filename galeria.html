@@ -1,265 +1,263 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contacto | MANOVOLT</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Galería - MANOVOLT</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #f9f9f9;
+      color: #333;
+    }
 
-<!-- Fuente -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: #0c1e2c;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
 
-<style>
-* {
-  box-sizing: border-box;
-  font-family: 'Inter', sans-serif;
-}
+    .logo {
+      font-size: 1.7rem;
+      font-weight: bold;
+      color: #fcd000;
+    }
 
-body {
-  margin: 0;
-  background: linear-gradient(135deg, #1f2933, #111827);
-  min-height: 100vh;
-  color: #111827;
-}
+    nav a {
+      margin-left: 20px;
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
 
-/* ===== HEADER ===== */
-header {
-  background: rgba(17,24,39,0.9);
-  backdrop-filter: blur(10px);
-  padding: 15px 30px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+    nav a:hover {
+      color: #fcd000;
+    }
 
-.logo {
-  font-size: 22px;
-  font-weight: 600;
-  color: #fff;
-}
+    h1 {
+      text-align: center;
+      margin-top: 40px;
+      color: #0c1e2c;
+    }
 
-.logo span {
-  margin-left: 6px;
-  color: #60a5fa;
-}
+    .gallery {
+      columns: 1;
+      column-gap: 20px;
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
 
-nav {
-  display: flex;
-  gap: 25px;
-}
+    .gallery-item {
+      break-inside: avoid;
+      margin-bottom: 20px;
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s;
+    }
 
-nav a {
-  color: #e5e7eb;
-  text-decoration: none;
-  font-size: 14px;
-  position: relative;
-}
+    .gallery-item:hover {
+      transform: translateY(-5px);
+    }
 
-nav a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -4px;
-  width: 0;
-  height: 2px;
-  background: #60a5fa;
-  transition: width 0.3s;
-}
+    .gallery-item img {
+      width: 100%;
+      display: block;
+      transition: transform 0.3s;
+      cursor: pointer;
+    }
 
-nav a:hover::after {
-  width: 100%;
-}
+    .gallery-item img:hover {
+      transform: scale(1.02);
+    }
 
-/* ===== CONTENEDOR ===== */
-.main {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 40px 20px;
-}
+    .gallery-item h3 {
+      margin: 0;
+      padding: 12px 16px 0;
+      font-size: 1.1rem;
+      color: #0c1e2c;
+    }
 
-/* ===== FORM CARD ===== */
-.contact-card {
-  background: #ffffff;
-  max-width: 480px;
-  width: 100%;
-  padding: 32px;
-  border-radius: 18px;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-  animation: fadeIn 0.8s ease;
-}
+    .gallery-item p {
+      padding: 0 16px 16px;
+      font-size: 0.95rem;
+      color: #555;
+    }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
+    /* Responsive grid */
+    @media (min-width: 600px) {
+      .gallery {
+        columns: 2;
+      }
+    }
 
-.contact-card h2 {
-  margin: 0 0 10px;
-  font-weight: 600;
-}
+    @media (min-width: 900px) {
+      .gallery {
+        columns: 3;
+      }
+    }
 
-.contact-card p {
-  font-size: 14px;
-  color: #6b7280;
-  margin-bottom: 25px;
-}
+    /* Lightbox overlay */
+    .lightbox {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.85);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+    }
 
-/* ===== CAMPOS ===== */
-.field {
-  margin-bottom: 18px;
-}
+    .lightbox img {
+      max-width: 90%;
+      max-height: 80vh;
+      border-radius: 10px;
+    }
 
-.field label {
-  font-size: 13px;
-  font-weight: 500;
-  color: #374151;
-  margin-bottom: 6px;
-  display: block;
-}
+    .lightbox:target {
+      display: flex;
+    }
 
-.field input,
-.field textarea {
-  width: 100%;
-  padding: 12px 14px;
-  border-radius: 10px;
-  border: 1px solid #d1d5db;
-  font-size: 14px;
-  transition: 0.3s;
-}
+    footer {
+      background-color: #0c1e2c;
+      text-align: center;
+      padding: 20px;
+      color: #ccc;
+      position: relative;
+    }
 
-.field textarea {
-  resize: vertical;
-  min-height: 110px;
-}
+    .social-icons {
+      margin-top: 10px;
+    }
 
-.field input:focus,
-.field textarea:focus {
-  outline: none;
-  border-color: #2563eb;
-  box-shadow: 0 0 0 3px rgba(37,99,235,0.15);
-}
+    .social-icons a {
+      margin: 0 10px;
+      color: #ccc;
+      transition: color 0.3s;
+      font-size: 1.2rem;
+    }
 
-/* ===== BOTON ===== */
-button {
-  width: 100%;
-  padding: 14px;
-  background: linear-gradient(135deg, #2563eb, #1d4ed8);
-  color: #fff;
-  font-size: 15px;
-  font-weight: 600;
-  border: none;
-  border-radius: 12px;
-  cursor: pointer;
-  transition: 0.2s;
-}
+    .social-icons a:hover {
+      color: #fcd000;
+    }
 
-button:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 10px 20px rgba(37,99,235,0.35);
-}
+    /* WhatsApp flotante */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25d366;
+      color: #fff;
+      border-radius: 50%;
+      width: 55px;
+      height: 55px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+      z-index: 999;
+      text-decoration: none;
+      transition: transform 0.3s ease;
+    }
 
-button:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-}
-
-/* ===== FOOTER ===== */
-.form-footer {
-  text-align: center;
-  font-size: 12px;
-  color: #9ca3af;
-  margin-top: 15px;
-}
-
-/* ===== RESPONSIVE ===== */
-@media (max-width: 600px) {
-  header {
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  nav {
-    gap: 18px;
-  }
-}
-</style>
+    .whatsapp-float:hover {
+      transform: scale(1.1);
+    }
+  </style>
 </head>
-
 <body>
 
 <header>
   <div class="logo">⚡<span>MANOVOLT</span></div>
   <nav>
     <a href="index.html">Inicio</a>
-    <a href="galeria.html">Galería</a>
+    <a href="formulario.html">Contacto</a>   
     <a href="consejos.html">Consejos</a>
   </nav>
 </header>
 
-<div class="main">
-  <div class="contact-card">
-    <h2>Contáctanos</h2>
-    <p>En MANOVOLT estamos listos para atender tu proyecto eléctrico.</p>
+<h1>Galería de Proyectos</h1>
 
-    <form id="contactForm">
-
-      <div class="field">
-        <label>Nombre</label>
-        <input type="text" name="name" placeholder="Tu nombre completo" required>
-      </div>
-
-      <div class="field">
-        <label>Correo</label>
-        <input type="email" name="email" placeholder="correo@ejemplo.com" required>
-      </div>
-
-      <div class="field">
-        <label>Mensaje</label>
-        <textarea name="message" placeholder="Describe tu necesidad..." required></textarea>
-      </div>
-
-      <input type="hidden" name="title" value="Nuevo mensaje desde la web MANOVOLT">
-      <input type="hidden" name="time">
-
-      <button type="submit" id="button">Enviar mensaje</button>
-    </form>
-
-    <div class="form-footer">
-      © 2025 · MANOVOLT · Energía que conecta
+<main>
+  <section class="gallery">
+    <div class="gallery-item">
+      <a href="#img1"><img src="proyecto1.jpg" alt="Instalación de luminarias"></a>
+      <h3>Rotulación de Tableros</h3>
+      <p>Tableros rotulados para un control más eficiente.</p>
     </div>
+    <div class="gallery-item">
+      <a href="#img2"><img src="proyecto2.png" alt="Instalación eléctrica comercial"></a>
+      <h3>Instalación eléctrica comercial</h3>
+      <p>Montajes seguros para negocios y oficinas.</p>
+    </div>
+    <div class="gallery-item">
+      <a href="#img3"><img src="proyecto3.jpg" alt="Mantenimiento eléctrico"></a>
+      <h3>Mantenimiento y reparación eléctrica</h3>
+      <p>Soluciones preventivas y correctivas efectivas.</p>
+    </div>
+    <div class="gallery-item">
+      <a href="#img4"><img src="proyecto4.jpg" alt="Cableado residencial"></a>
+      <h3>Cableado residencial</h3>
+      <p>Instalaciones limpias y seguras para el hogar.</p>
+    </div>
+    <div class="gallery-item">
+      <a href="#img5"><img src="imagen01.jpg" alt="Canalizado decorativo"></a>
+      <h3>Canalizado decorativo</h3>
+      <p>Estética funcional para ambientes modernos.</p>
+    </div>
+    <div class="gallery-item">
+      <a href="#img6"><img src="imagen02.jpg" alt="Luminaria decorativa"></a>
+      <h3>Luminaria decorativa</h3>
+      <p>Ambientes cálidos con luz ambiental dirigida.</p>
+    </div>
+    <div class="gallery-item">
+      <a href="#img7"><img src="imagen03.jpg" alt="Iluminación de paredes"></a>
+      <h3>Iluminación de paredes</h3>
+      <p>Luminarias adosadas que realzan texturas y diseño.</p>
+    </div>
+    <div class="gallery-item">
+      <a href="#img8"><img src="imagen04.jpg" alt="Cielo falso con luminarias"></a>
+      <h3>Cielo falso con iluminación</h3>
+      <p>Instalación profesional de techos e iluminación.</p>
+    </div>
+  </section>
+</main>
+
+<!-- Lightbox -->
+<div class="lightbox" id="img1"><img src="proyecto1.jpg" alt="Imagen ampliada"></div>
+<div class="lightbox" id="img2"><img src="proyecto2.png" alt="Imagen ampliada"></div>
+<div class="lightbox" id="img3"><img src="proyecto3.jpg" alt="Imagen ampliada"></div>
+<div class="lightbox" id="img4"><img src="proyecto4.jpg" alt="Imagen ampliada"></div>
+<div class="lightbox" id="img5"><img src="imagen01.jpg" alt="Imagen ampliada"></div>
+<div class="lightbox" id="img6"><img src="imagen02.jpg" alt="Imagen ampliada"></div>
+<div class="lightbox" id="img7"><img src="imagen03.jpg" alt="Imagen ampliada"></div>
+<div class="lightbox" id="img8"><img src="imagen04.jpg" alt="Imagen ampliada"></div>
+
+<footer>
+  © 2025 MANOVOLT - Todos los derechos reservados
+  <div class="social-icons">
+    <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+    <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="mailto:manovolt@ejemplo.com"><i class="fas fa-envelope"></i></a>
   </div>
-</div>
+</footer>
 
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-
-<script>
-  emailjs.init('0PLfR-KE2ltraudma');
-
-  const form = document.getElementById('contactForm');
-  const button = document.getElementById('button');
-
-  form.addEventListener('submit', function(e) {
-    e.preventDefault();
-
-    form.time.value = new Date().toLocaleString();
-    button.disabled = true;
-    button.textContent = 'Enviando...';
-
-    emailjs.sendForm('default_service', 'template_4yfqrmy', form)
-      .then(() => {
-        alert('Mensaje enviado correctamente ⚡');
-        form.reset();
-      })
-      .catch(err => {
-        console.error(err);
-        alert('Error al enviar el mensaje');
-      })
-      .finally(() => {
-        button.disabled = false;
-        button.textContent = 'Enviar mensaje';
-      });
-  });
-</script>
+<a href="https://wa.me/5211234567890" class="whatsapp-float" target="_blank" title="Contáctanos por WhatsApp">
+  <i class="fab fa-whatsapp"></i>
+</a>
 
 </body>
 </html>
